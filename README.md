@@ -213,4 +213,7 @@ Contributions welcome! Please:
 
 Built with ❤️ for pets and their humans
 
-**Powered by**: Anthropic Claude AI | Vercel Edge Network
+**Powered by**: Anthropic Claude AI | Vercel Edge Network 
+
+**All rights reserved Content Crew LLC Baiopet TM
+
