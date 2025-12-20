@@ -229,7 +229,7 @@ Please provide a comprehensive analysis of these blood test results.`;
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'x-api-key': import.meta.env.VITE_ANTHROPIC_API_KEY,
+          'x-api-key': sk-ant-api03-Vh8...QAAA,
           'anthropic-version': '2023-06-01'
         },
         body: JSON.stringify({
