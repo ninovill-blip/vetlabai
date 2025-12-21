@@ -1132,7 +1132,7 @@ T4: 2.5 μg/dL (1.0-4.0)`}
                 Baiopet
               </p>
               <p className="text-xs text-gray-500 mt-1">
-                © {new Date().getFullYear()} Content Crew LLC. All rights reserved.
+                © {new Date().getFullYear()} Content Crew LLC Bio Token TM. All rights reserved.
               </p>
             </div>
             <p className="text-xs text-gray-400">
