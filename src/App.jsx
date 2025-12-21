@@ -252,6 +252,11 @@ Please provide a comprehensive analysis of these blood test results.`;
     } finally {
       setLoading(false);
     }
+ };const handleReset = () => {
+    
+    setStep('form');
+    setAnalysis(null);
+    setError(null);
   };
   const exportToPDF = () => {
     // Simple PDF export (in production, use jsPDF or similar)
