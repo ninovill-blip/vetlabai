@@ -225,27 +225,21 @@ ${labResults}
 
 Please provide a comprehensive analysis of these blood test results.`;
 
-      const response = await fetch('https://api.anthropic.com/v1/messages', {
+      // Call OUR serverless function instead of Anthropic directly
+      const response = await fetch('/api/analyze', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'x-api-key': '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':, 
         },
         body: JSON.stringify({
-          model: 'claude-sonnet-4-20250514',
-          max_tokens: 4000,
-          system: fullContext,
-          messages: [
-            {
-              role: 'user',
-              content: userInput
-            }
-          ]
+          systemPrompt: fullContext,
+          userInput: userInput
         })
       });
 
       if (!response.ok) {
-        throw new Error('API call failed. Please check your API key.');
+        const errorData = await response.json();
+        throw new Error(errorData.error || 'API call failed');
       }
 
       const data = await response.json();
@@ -259,13 +253,6 @@ Please provide a comprehensive analysis of these blood test results.`;
       setLoading(false);
     }
   };
-
-  const handleReset = () => {
-    setStep('form');
-    setAnalysis(null);
-    setError(null);
-  };
-
   const exportToPDF = () => {
     // Simple PDF export (in production, use jsPDF or similar)
     const printWindow = window.open('', '', 'height=600,width=800');
