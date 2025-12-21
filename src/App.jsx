@@ -229,8 +229,7 @@ Please provide a comprehensive analysis of these blood test results.`;
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          ''x-api-key': import.meta.env.VITE_ANTHROPIC_API_KEY,': 
-          'anthropic-version': '2023-06-01'
+          'x-api-key': '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':, 
         },
         body: JSON.stringify({
           model: 'claude-sonnet-4-20250514',
