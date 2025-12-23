@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Upload, FileText, AlertCircle, CheckCircle, Clock, Sparkles, Download, ChevronDown, ChevronUp } from 'lucide-react';
 
