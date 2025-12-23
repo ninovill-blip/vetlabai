@@ -92,39 +92,24 @@ Potassium: 3.5-5.8 mmol/L`;
     setError(null);
     
     try {
-      const response = await fetch('https://api.anthropic.com/v1/messages', {
+      // Call our backend API
+      const response = await fetch('/api/analyze', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'x-api-key': import.meta.env.VITE_ANTHROPIC_API_KEY,
-          'anthropic-version': '2023-06-01'
         },
         body: JSON.stringify({
-          model: 'claude-sonnet-4-20250514',
-          max_tokens: 4000,
-          messages: [{
-            role: 'user',
-            content: `${SYSTEM_PROMPT}
-
-${CANINE_RANGES}
-
-Pet: ${petData.name}
-Breed: ${petData.breed}
-Age: ${petData.age} years
-Weight: ${petData.weight} lbs
-Sex: ${petData.sex}
-Spayed/Neutered: ${petData.neuteredSpayed}
-
-Blood Work Results:
-${bloodWork}
-
-Generate appropriate educational report for tier: ${reportTier}`
-          }]
+          systemPrompt: SYSTEM_PROMPT,
+          canineRanges: CANINE_RANGES,
+          petData,
+          bloodWork,
+          reportTier
         })
       });
 
       if (!response.ok) {
-        throw new Error('Failed to analyze blood work');
+        const errorData = await response.json().catch(() => ({}));
+        throw new Error(errorData.error || 'Analysis failed');
       }
 
       const data = await response.json();
@@ -136,7 +121,7 @@ Generate appropriate educational report for tier: ${reportTier}`
       setResult(analysisText);
     } catch (err) {
       console.error('Error:', err);
-      setError('Failed to analyze blood work. Please check your API key and try again.');
+      setError(`Failed to analyze: ${err.message}`);
     } finally {
       setLoading(false);
     }
