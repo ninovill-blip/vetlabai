@@ -1,4 +1,4 @@
-import { useState } from 'react';
+ import { useState } from 'react';
 import { Clock } from 'lucide-react';
 
 const App = () => {
@@ -458,102 +458,47 @@ Creatinine: 1.3
                   </div>
                 )}
 
-                {/* Upgrade to Complete Analysis */}
-                <div className="bg-white border-2 border-[#00a0af] rounded-lg p-8 shadow-md">
-                  <div className="text-center mb-6">
-                    <h2 className="text-2xl font-light text-[#003057] mb-3">
-                      Upgrade to Complete Analysis
-                    </h2>
-                    <p className="text-base text-gray-700 max-w-2xl mx-auto leading-relaxed">
-                      Get the full professional veterinary-approved analysis with all three doctor perspectives, 
-                      breed-specific guidance, and personalized nutrition recommendations.
-                    </p>
-                  </div>
-
-                  <div className="max-w-2xl mx-auto mb-6">
-                    <div className="bg-gray-50 rounded-lg p-6 border border-gray-200">
-                      <div className="flex items-center justify-between mb-4 pb-4 border-b border-gray-200">
-                        <div>
-                          <h3 className="text-xl font-semibold text-[#003057]">Complete Analysis</h3>
-                          <p className="text-sm text-gray-600">One-time payment</p>
-                        </div>
-                        <div className="text-right">
-                          <div className="text-3xl font-light text-[#003057]">$9.99</div>
-                        </div>
-                      </div>
-                      
-                      <div className="grid md:grid-cols-2 gap-4 mb-6">
-                        <div>
-                          <p className="text-sm font-semibold text-[#003057] mb-2">Included in Free Report:</p>
-                          <ul className="text-sm text-gray-700 space-y-1">
-                            <li className="flex items-start gap-2">
-                              <span className="text-gray-400 mt-0.5">•</span>
-                              <span>Basic report card (🟢🟡🔴)</span>
-                            </li>
-                            <li className="flex items-start gap-2">
-                              <span className="text-gray-400 mt-0.5">•</span>
-                              <span>Top 3 concerns</span>
-                            </li>
-                            <li className="flex items-start gap-2">
-                              <span className="text-gray-400 mt-0.5">•</span>
-                              <span>Emergency alerts</span>
-                            </li>
-                            <li className="flex items-start gap-2">
-                              <span className="text-gray-400 mt-0.5">•</span>
-                              <span>Questions for your vet</span>
-                            </li>
-                          </ul>
-                        </div>
-                        
-                        <div>
-                          <p className="text-sm font-semibold text-[#00a0af] mb-2">Added with Complete Analysis:</p>
-                          <ul className="text-sm text-gray-700 space-y-1">
-                            <li className="flex items-start gap-2">
-                              <span className="text-[#00a0af] mt-0.5">✓</span>
-                              <span>All 3 veterinary perspectives</span>
-                            </li>
-                            <li className="flex items-start gap-2">
-                              <span className="text-[#00a0af] mt-0.5">✓</span>
-                              <span>Detailed marker explanations</span>
-                            </li>
-                            <li className="flex items-start gap-2">
-                              <span className="text-[#00a0af] mt-0.5">✓</span>
-                              <span>Breed-specific health guidance</span>
-                            </li>
-                            <li className="flex items-start gap-2">
-                              <span className="text-[#00a0af] mt-0.5">✓</span>
-                              <span>Nutrition recommendations</span>
-                            </li>
-                            <li className="flex items-start gap-2">
-                              <span className="text-[#00a0af] mt-0.5">✓</span>
-                              <span>Downloadable PDF report</span>
-                            </li>
-                            <li className="flex items-start gap-2">
-                              <span className="text-[#00a0af] mt-0.5">✓</span>
-                              <span>Research citations (AVMA, AAHA)</span>
-                            </li>
-                          </ul>
-                        </div>
-                      </div>
-
-                      <a
-                        href={STRIPE_LINKS.tier1}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="block w-full bg-gradient-to-r from-[#00a0af] to-[#008a97] hover:from-[#008a97] hover:to-[#007a87] text-white text-center py-4 rounded-md font-semibold text-lg transition shadow-md"
-                      >
-                        Upgrade to Complete Analysis - $9.99
-                      </a>
-                      
-                      <p className="text-xs text-gray-500 text-center mt-3">
-                        Secure payment processed by Stripe • One-time fee • Instant access
-                      </p>
+                {/* Upgrade to Complete Analysis - Simple Button */}
+                <div className="bg-white border-2 border-[#00a0af] rounded-lg p-8 shadow-lg text-center max-w-2xl mx-auto">
+                  <h2 className="text-2xl font-light text-[#003057] mb-3">
+                    Want the Complete Analysis?
+                  </h2>
+                  <p className="text-base text-gray-700 mb-6 leading-relaxed">
+                    Upgrade to get all three veterinary perspectives, detailed breed-specific guidance, 
+                    nutrition recommendations, and a professional PDF report.
+                  </p>
+                  
+                  <div className="flex flex-wrap justify-center gap-4 mb-8 text-sm text-gray-700">
+                    <div className="flex items-center gap-2">
+                      <span className="text-[#00a0af]">✓</span>
+                      <span>3 Doctor Perspectives</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <span className="text-[#00a0af]">✓</span>
+                      <span>Breed-Specific Guide</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <span className="text-[#00a0af]">✓</span>
+                      <span>Nutrition Plan</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <span className="text-[#00a0af]">✓</span>
+                      <span>PDF Download</span>
                     </div>
                   </div>
 
-                  <div className="text-center text-xs text-gray-500">
-                    <p>All payments are secure and encrypted</p>
-                  </div>
+                  <a
+                    href={STRIPE_LINKS.tier1}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block bg-gradient-to-r from-[#00a0af] to-[#008a97] hover:from-[#008a97] hover:to-[#007a87] text-white px-12 py-4 rounded-lg font-semibold text-lg transition shadow-lg transform hover:scale-105"
+                  >
+                    Get Complete Analysis - $9.99
+                  </a>
+                  
+                  <p className="text-xs text-gray-500 mt-4">
+                    Secure one-time payment via Stripe • Instant access
+                  </p>
                 </div>
                 
               </div>
