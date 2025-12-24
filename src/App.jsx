@@ -136,67 +136,91 @@ Potassium: 3.5-5.8 mmol/L`;
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-teal-50 via-cyan-50 to-blue-50">
+    <div className="min-h-screen bg-white">
       
       {/* Header */}
-      <header className="bg-gradient-to-r from-[#003057] to-[#00a0af] text-white shadow-xl">
-        <div className="container mx-auto px-6 py-6">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+      <header className="bg-white border-b-2 border-gray-200 shadow-sm">
+        <div className="container mx-auto px-6 py-8">
+          <div className="max-w-4xl mx-auto text-center">
             
             {/* Logo */}
-            <div className="flex items-center gap-4">
-              <div className="flex items-center gap-1 text-3xl">
-                <span>🔬</span>
-                <span>🎓</span>
-                <span>🐾</span>
-              </div>
-              <div>
-                <h1 className="text-3xl md:text-4xl font-bold tracking-tight">PetLabAI</h1>
-                <p className="text-sm md:text-base text-cyan-100 font-medium">Pet Health University</p>
+            <div className="mb-4">
+              <h1 className="text-4xl md:text-5xl font-light tracking-wide text-[#003057] mb-2">
+                PetLabAI<sup className="text-lg font-normal">™</sup>
+              </h1>
+            </div>
+            
+            {/* Main Tagline */}
+            <div className="mb-6">
+              <p className="text-lg md:text-xl text-gray-700 font-medium leading-relaxed">
+                The First Veterinary-Approved Dog and Cat Blood AI Analysis
+              </p>
+            </div>
+            
+            {/* Value Proposition */}
+            <div className="mb-6">
+              <p className="text-base md:text-lg text-gray-600 leading-relaxed max-w-3xl mx-auto">
+                Be educated on how to interpret and improve your Dog and Cat's wellbeing
+              </p>
+            </div>
+            
+            {/* Beta Badge - Minimal */}
+            <div className="inline-block">
+              <div className="bg-gradient-to-r from-[#00a0af] to-[#008a97] text-white px-6 py-2 rounded-md text-sm font-medium">
+                Free Beta Program Now Open
               </div>
             </div>
             
-            {/* Tagline */}
-            <div className="hidden lg:flex flex-col items-end text-sm">
-              <div className="flex items-center gap-3 font-medium">
-                <span>🔬 Laboratory Science</span>
-                <span className="text-cyan-300">•</span>
-                <span>🎓 Educational Excellence</span>
-                <span className="text-cyan-300">•</span>
-                <span>🐾 Veterinary Expertise</span>
-              </div>
-              <p className="text-cyan-200 text-xs mt-1">We Teach • Vets Treat • Together = Healthy Pets</p>
-            </div>
-            
+          </div>
+        </div>
+        
+        {/* Educational Disclaimer Bar */}
+        <div className="bg-gray-50 border-t border-gray-200">
+          <div className="container mx-auto px-6 py-4">
+            <p className="text-xs md:text-sm text-gray-600 text-center leading-relaxed max-w-4xl mx-auto">
+              <span className="font-semibold">Educational Tool:</span> PetLabAI provides educational information 
+              about blood work designed by leading veterinarians and students from UC Davis, Iowa State University, 
+              and laboratories nationwide.
+            </p>
           </div>
         </div>
       </header>
 
       {/* Main Content */}
-      <div className="container mx-auto px-4 py-8 md:py-12 max-w-6xl">
+      <div className="container mx-auto px-4 py-8 md:py-12 max-w-6xl bg-gray-50 min-h-screen">
         
         {/* Hero Section */}
         <div className="text-center mb-10">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#003057] mb-3">
-            Understanding Your Pet's Blood Work Made Simple
+          <div className="inline-block bg-[#00a0af] text-white px-8 py-3 rounded-md font-medium text-base mb-6 shadow-sm">
+            Free Beta Access Available
+          </div>
+          <h2 className="text-3xl md:text-4xl font-light text-[#003057] mb-4 leading-tight">
+            Professional Blood Work Analysis for Your Pet
           </h2>
-          <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
-            Turn confusing lab results into knowledge you can use. Learn from laboratory science, 
-            educational experts, and veterinary professionals.
+          <p className="text-base md:text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed">
+            Join our beta program to receive comprehensive blood work education designed by 
+            veterinary professionals. Help us refine the platform while gaining valuable insights 
+            into your pet's health markers.
+          </p>
+          <p className="text-sm text-gray-600 mt-4 max-w-2xl mx-auto">
+            Beta participants receive priority access to future features and special pricing.
           </p>
         </div>
 
         {/* Educational Disclaimer */}
-        <div className="mb-8 bg-gradient-to-r from-cyan-50 to-teal-50 border-l-4 border-[#00a0af] rounded-r-lg p-5 shadow-md">
+        <div className="mb-8 bg-white border border-gray-300 rounded-lg p-6 shadow-sm">
           <div className="flex items-start gap-3">
-            <span className="text-2xl">📚</span>
+            <div className="flex-shrink-0 w-8 h-8 bg-[#00a0af] rounded-full flex items-center justify-center">
+              <span className="text-white text-sm font-bold">i</span>
+            </div>
             <div>
-              <p className="text-sm font-semibold text-[#003057] mb-1">
-                Educational Tool Only
+              <p className="text-sm font-semibold text-[#003057] mb-2">
+                Important: Educational Tool Only
               </p>
               <p className="text-xs text-gray-700 leading-relaxed">
-                PetLabAI provides educational information about pet blood work. This is NOT veterinary 
-                medical advice. For medical guidance, consult a licensed veterinarian.
+                PetLabAI provides educational information to help you understand your pet's blood work. 
+                This is not a substitute for professional veterinary medical advice, diagnosis, or treatment. 
+                Always consult with a licensed veterinarian for medical guidance regarding your pet's health.
               </p>
             </div>
           </div>
@@ -204,8 +228,8 @@ Potassium: 3.5-5.8 mmol/L`;
 
         {/* Input Form */}
         <div className="bg-white rounded-xl shadow-2xl p-6 md:p-8 border-t-4 border-[#00a0af] mb-8">
-          <h3 className="text-2xl font-bold text-[#003057] mb-6 flex items-center gap-2">
-            <span>🐾</span> Pet Information
+          <h3 className="text-2xl font-light text-[#003057] mb-6 border-b border-gray-200 pb-3">
+            Pet Information
           </h3>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
@@ -294,8 +318,8 @@ Potassium: 3.5-5.8 mmol/L`;
           </div>
 
           <div className="mb-6">
-            <label className="block text-sm font-semibold text-gray-700 mb-2 flex items-center gap-2">
-              <span>🔬</span> Blood Work Results *
+            <label className="block text-sm font-semibold text-gray-700 mb-2">
+              Blood Work Results *
             </label>
             <textarea
               value={bloodWork}
@@ -316,30 +340,28 @@ Creatinine: 1.3
           <button
             onClick={handleAnalyze}
             disabled={loading}
-            className="w-full bg-gradient-to-r from-[#00a0af] to-[#008a97] hover:from-[#008a97] hover:to-[#007a87] text-white py-4 px-6 rounded-lg font-bold text-lg transition-all transform hover:scale-[1.02] active:scale-[0.98] disabled:bg-gray-400 disabled:cursor-not-allowed shadow-lg disabled:transform-none flex items-center justify-center gap-2"
+            className="w-full bg-gradient-to-r from-[#00a0af] to-[#008a97] hover:from-[#008a97] hover:to-[#007a87] text-white py-4 px-6 rounded-lg font-semibold text-base transition-all transform hover:scale-[1.01] active:scale-[0.99] disabled:bg-gray-400 disabled:cursor-not-allowed shadow-md disabled:transform-none flex items-center justify-center gap-2"
           >
             {loading ? (
               <>
-                <Clock className="w-6 h-6 animate-spin" />
-                Creating Your Education Report...
+                <Clock className="w-5 h-5 animate-spin" />
+                Generating Analysis...
               </>
             ) : (
-              <>
-                🎓 Start My Pet's Education Report
-              </>
+              'Generate Blood Work Analysis'
             )}
           </button>
         </div>
 
         {/* Loading State */}
         {loading && (
-          <div className="bg-white rounded-xl shadow-2xl p-12 text-center border-t-4 border-[#00a0af]">
-            <div className="text-6xl mb-4 animate-bounce">🎓</div>
-            <h2 className="text-3xl font-bold bg-gradient-to-r from-[#003057] to-[#00a0af] bg-clip-text text-transparent mb-3">
-              Creating {petData.name}'s Education Report!
+          <div className="bg-white rounded-xl shadow-lg p-12 text-center border border-gray-200">
+            <div className="w-16 h-16 border-4 border-[#00a0af] border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+            <h2 className="text-2xl font-light text-[#003057] mb-2">
+              Analyzing {petData.name}'s Blood Work
             </h2>
-            <p className="text-lg text-gray-700">
-              📚 Teaching you about {petData.name}'s health...
+            <p className="text-base text-gray-600">
+              Processing results with veterinary-approved analysis methods...
             </p>
           </div>
         )}
@@ -354,14 +376,14 @@ Creatinine: 1.3
         {/* Results */}
         {result && !loading && (
           <>
-            <div className="bg-white rounded-xl shadow-2xl p-6 md:p-8 border-t-4 border-[#00a0af] mb-8">
-              <div className="mb-6 pb-6 border-b-2 border-teal-100">
-                <div className="flex items-center justify-center mb-3">
-                  <span className="text-3xl mr-2">🎓</span>
-                  <h2 className="text-2xl md:text-3xl font-bold text-[#003057]">
-                    {petData.name}'s Education Report
-                  </h2>
-                </div>
+            <div className="bg-white rounded-xl shadow-lg p-6 md:p-8 border border-gray-200 mb-8">
+              <div className="mb-6 pb-6 border-b border-gray-200">
+                <h2 className="text-2xl md:text-3xl font-light text-[#003057] text-center">
+                  Blood Work Analysis: {petData.name}
+                </h2>
+                <p className="text-sm text-gray-600 text-center mt-2">
+                  {petData.breed} • {petData.age} years old
+                </p>
               </div>
 
               <div className="prose prose-lg max-w-none">
@@ -398,87 +420,148 @@ Creatinine: 1.3
               </div>
             )}
 
-            {/* Upgrade Pricing */}
+            {/* FREE Beta Signup */}
             {reportTier === 'free' && (
-              <div className="bg-white border-2 border-[#00a0af] rounded-xl p-8 shadow-2xl">
+              <div className="bg-gray-50 border border-gray-300 rounded-lg p-8 shadow-sm">
                 <div className="text-center mb-8">
-                  <div className="text-5xl mb-4">🎓</div>
-                  <h2 className="text-3xl font-bold text-[#003057] mb-3">
-                    Want Complete Clinical Analysis?
+                  <h2 className="text-3xl font-light text-[#003057] mb-4">
+                    Join the Beta Program
                   </h2>
+                  <p className="text-base text-gray-700 max-w-2xl mx-auto mb-6 leading-relaxed">
+                    Access comprehensive blood work analysis at no cost during our beta period. 
+                    Help refine our platform while receiving professional veterinary-approved insights.
+                  </p>
+                  <div className="inline-block bg-blue-50 border border-blue-200 rounded-md px-6 py-3 mb-6">
+                    <p className="text-sm font-medium text-blue-900">
+                      Beta participants receive special pricing when we launch
+                    </p>
+                  </div>
                 </div>
 
-                <div className="grid md:grid-cols-3 gap-6">
+                <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-8">
                   
-                  {/* $9.99 */}
-                  <div className="bg-white rounded-xl p-6 shadow-lg border-2 border-gray-200 hover:border-[#00a0af] transition">
-                    <div className="text-center mb-4">
-                      <div className="text-3xl font-bold text-[#003057]">$9.99</div>
-                      <div className="text-sm text-gray-600">One-Time</div>
+                  {/* Tier 1 Preview */}
+                  <div className="bg-white rounded-lg p-6 border border-gray-200 shadow-sm">
+                    <div className="text-center mb-4 pb-4 border-b border-gray-200">
+                      <div className="text-xs font-semibold text-[#00a0af] mb-2">FREE DURING BETA</div>
+                      <div className="text-2xl font-light text-gray-400 line-through">$9.99</div>
+                      <div className="text-xs text-gray-500 mt-1">After Launch</div>
                     </div>
-                    <ul className="text-sm space-y-2 mb-6">
-                      <li>✓ Complete clinical analysis</li>
-                      <li>✓ All markers explained</li>
-                      <li>✓ Breed-specific risks</li>
-                      <li>✓ Ask 3 questions</li>
+                    <div className="text-sm font-semibold text-[#003057] mb-3">Detailed Analysis</div>
+                    <ul className="text-sm text-gray-700 space-y-2">
+                      <li className="flex items-start gap-2">
+                        <span className="text-[#00a0af] mt-0.5">✓</span>
+                        <span>Complete clinical analysis</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-[#00a0af] mt-0.5">✓</span>
+                        <span>All blood markers explained</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-[#00a0af] mt-0.5">✓</span>
+                        <span>Breed-specific risk factors</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-[#00a0af] mt-0.5">✓</span>
+                        <span>3 follow-up questions</span>
+                      </li>
                     </ul>
-                    <a
-                      href={STRIPE_LINKS.tier1}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="block w-full bg-[#00a0af] hover:bg-[#008a97] text-white text-center py-3 rounded-lg font-semibold transition"
-                    >
-                      Get Analysis
-                    </a>
                   </div>
 
-                  {/* $19.99 */}
-                  <div className="bg-white rounded-xl p-6 shadow-2xl border-4 border-[#003057] transform scale-105">
-                    <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-[#ff6b6b] text-white px-6 py-2 rounded-full text-sm font-bold">
-                      ⭐ BEST VALUE
+                  {/* Tier 2 Preview - HIGHLIGHTED */}
+                  <div className="bg-white rounded-lg p-6 border-2 border-[#00a0af] shadow-md relative">
+                    <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-[#00a0af] text-white px-4 py-1 rounded-md text-xs font-medium">
+                      Most Popular
                     </div>
-                    <div className="text-center mb-4 mt-2">
-                      <div className="text-3xl font-bold text-[#003057]">$19.99</div>
-                      <div className="text-sm text-gray-600">One-Time</div>
+                    <div className="text-center mb-4 pb-4 border-b border-gray-200 mt-2">
+                      <div className="text-xs font-semibold text-[#00a0af] mb-2">FREE DURING BETA</div>
+                      <div className="text-2xl font-light text-gray-400 line-through">$19.99</div>
+                      <div className="text-xs text-gray-500 mt-1">After Launch</div>
                     </div>
-                    <ul className="text-sm space-y-2 mb-6">
-                      <li>✓ Everything in $9.99</li>
-                      <li>✓ <strong>3 doctor perspectives</strong></li>
-                      <li>✓ <strong>Diet & nutrition plan</strong></li>
-                      <li>✓ Visual health checklist</li>
+                    <div className="text-sm font-semibold text-[#003057] mb-3">Complete Assessment</div>
+                    <ul className="text-sm text-gray-700 space-y-2">
+                      <li className="flex items-start gap-2">
+                        <span className="text-[#00a0af] mt-0.5">✓</span>
+                        <span>All features from Detailed Analysis</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-[#00a0af] mt-0.5">✓</span>
+                        <span>Three veterinary perspectives</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-[#00a0af] mt-0.5">✓</span>
+                        <span>Nutrition guidance</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-[#00a0af] mt-0.5">✓</span>
+                        <span>Health monitoring checklist</span>
+                      </li>
                     </ul>
-                    <a
-                      href={STRIPE_LINKS.tier2}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="block w-full bg-[#003057] hover:bg-[#00446b] text-white text-center py-3 rounded-lg font-semibold transition"
-                    >
-                      Get Complete Report
-                    </a>
                   </div>
 
-                  {/* $29.99/mo */}
-                  <div className="bg-gradient-to-br from-cyan-50 to-teal-50 rounded-xl p-6 shadow-lg border-2 border-[#00a0af]">
-                    <div className="text-center mb-4">
-                      <div className="text-3xl font-bold text-[#003057]">$29.99</div>
-                      <div className="text-sm text-gray-600">Per Month</div>
+                  {/* Tier 3 Preview */}
+                  <div className="bg-white rounded-lg p-6 border border-gray-200 shadow-sm">
+                    <div className="text-center mb-4 pb-4 border-b border-gray-200">
+                      <div className="text-xs font-semibold text-[#00a0af] mb-2">FREE DURING BETA</div>
+                      <div className="text-2xl font-light text-gray-400 line-through">$29.99/mo</div>
+                      <div className="text-xs text-gray-500 mt-1">After Launch</div>
                     </div>
-                    <ul className="text-sm space-y-2 mb-6">
-                      <li>✓ Everything in $19.99</li>
-                      <li>✓ <strong>UNLIMITED reports</strong></li>
-                      <li>✓ <strong>UNLIMITED questions</strong></li>
-                      <li>✓ Track over time</li>
+                    <div className="text-sm font-semibold text-[#003057] mb-3">Professional Membership</div>
+                    <ul className="text-sm text-gray-700 space-y-2">
+                      <li className="flex items-start gap-2">
+                        <span className="text-[#00a0af] mt-0.5">✓</span>
+                        <span>All Complete Assessment features</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-[#00a0af] mt-0.5">✓</span>
+                        <span>Unlimited analysis reports</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-[#00a0af] mt-0.5">✓</span>
+                        <span>Progress tracking over time</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-[#00a0af] mt-0.5">✓</span>
+                        <span>Educational resource library</span>
+                      </li>
                     </ul>
-                    <a
-                      href={STRIPE_LINKS.subscription}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="block w-full bg-[#00a0af] hover:bg-[#008a97] text-white text-center py-3 rounded-lg font-semibold transition"
-                    >
-                      Subscribe
-                    </a>
                   </div>
 
+                </div>
+
+                {/* Beta Signup Form */}
+                <div className="max-w-2xl mx-auto">
+                  <div className="bg-white rounded-lg p-8 border border-gray-300 shadow-sm">
+                    <h3 className="text-xl font-light text-[#003057] mb-4 text-center">
+                      Request Beta Access
+                    </h3>
+                    <p className="text-gray-600 mb-6 text-center text-sm">
+                      Enter your email address to receive access to our beta program.
+                      No credit card required.
+                    </p>
+                    <div className="flex flex-col sm:flex-row gap-3">
+                      <input
+                        type="email"
+                        placeholder="your@email.com"
+                        value={userEmail}
+                        onChange={(e) => setUserEmail(e.target.value)}
+                        className="flex-1 px-5 py-3 border border-gray-300 rounded-md focus:border-[#00a0af] focus:outline-none focus:ring-1 focus:ring-[#00a0af] text-base"
+                      />
+                      <button
+                        onClick={handleSaveEmail}
+                        className="bg-gradient-to-r from-[#00a0af] to-[#008a97] hover:from-[#008a97] hover:to-[#007a87] text-white px-8 py-3 rounded-md font-semibold text-base transition shadow-sm whitespace-nowrap"
+                      >
+                        Join Beta Program
+                      </button>
+                    </div>
+                    <p className="text-xs text-gray-500 text-center mt-4">
+                      Beta participants receive priority access and special pricing at launch
+                    </p>
+                  </div>
+                </div>
+
+                <div className="mt-6 text-center text-xs text-gray-500">
+                  <p>Your information is secure and will not be shared with third parties</p>
                 </div>
               </div>
             )}
@@ -487,21 +570,31 @@ Creatinine: 1.3
       </div>
 
       {/* Footer */}
-      <footer className="bg-gradient-to-r from-[#003057] to-[#00446b] text-white mt-16 py-10">
-        <div className="container mx-auto px-6 text-center">
-          <div className="flex items-center justify-center mb-4">
-            <span className="text-4xl mr-3">🔬🎓🐾</span>
-            <div>
-              <p className="text-2xl font-bold">PetLabAI</p>
-              <p className="text-sm text-cyan-200">Pet Health University</p>
+      <footer className="bg-gray-900 text-gray-300 mt-16 py-10">
+        <div className="container mx-auto px-6">
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="mb-6">
+              <p className="text-2xl font-light text-white mb-2">
+                PetLabAI<sup className="text-sm">™</sup>
+              </p>
+              <p className="text-sm text-gray-400">
+                The First Veterinary-Approved Dog and Cat Blood AI Analysis
+              </p>
+            </div>
+            <div className="border-t border-gray-700 pt-6 mb-6">
+              <p className="text-sm text-gray-400 mb-2">
+                A Content Crew LLC / Baio Token AI Company
+              </p>
+              <p className="text-sm text-gray-400">
+                Irvine, California
+              </p>
+            </div>
+            <div className="text-xs text-gray-500 space-y-1">
+              <p>© 2025 Content Crew LLC. All rights reserved.</p>
+              <p>Educational content only. Not a substitute for veterinary care.</p>
+              <p>Developed in collaboration with CA Veterinarians and Students from UC Davis, Iowa State University, and laboratories nationwide.</p>
             </div>
           </div>
-          <p className="text-sm text-cyan-300 mb-4">
-            © 2025 Content Crew LLC. All rights reserved.
-          </p>
-          <p className="text-xs text-cyan-300">
-            Educational content only. Not a substitute for veterinary care.
-          </p>
         </div>
       </footer>
     </div>
