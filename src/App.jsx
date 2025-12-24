@@ -1,4 +1,4 @@
-import { useState } from 'react';
+ import { useState } from 'react';
 import { Clock } from 'lucide-react';
 
 const App = () => {
@@ -25,51 +25,62 @@ const App = () => {
     subscription: 'https://buy.stripe.com/cNicN6b7s2Es4PwbBu8EM02'
   };
 
-  const SYSTEM_PROMPT = `You are an educational veterinary blood work interpreter for PetLabAI - Pet Health University.
+  const SYSTEM_PROMPT = `You are an educational veterinary blood work interpreter for PetLabAI.
 
 CRITICAL: Generate reports based on tier: ${reportTier}
 
-TIER: FREE
+TIER: FREE (Basic Report Card)
+Generate a concise basic report with:
 - Welcome message
-- Blood work report card (🟢🟡🔴)
-- Top 3 concerns
-- Emergency red flags
-- Basic interpretation (Traditional DVM perspective only)
-- When to see vet
-- NO detailed analysis
+- Blood work report card using traffic light system:
+  🟢 GREEN (Normal): Values within normal range
+  🟡 YELLOW (Watch): Slightly elevated/decreased, monitor
+  🔴 RED (Concern): Significantly abnormal, discuss with vet
+- Top 3 concerns (if any abnormal values exist)
+- Emergency red flags (if critical values)
+- Basic interpretation from Traditional DVM perspective only
+- When to see your veterinarian
+- Questions to ask your vet
+- NO detailed marker explanations
 - NO three perspectives
-- NO breed deep-dive
-- NO nutrition
-- LENGTH: 400-500 words
-- END WITH: "🎓 Want Complete Analysis? Upgrade to $9.99 for detailed explanations + 3 questions"
+- NO breed-specific deep-dive
+- NO nutrition recommendations
+- LENGTH: 400-600 words
+- END WITH UPGRADE CTA: "For complete analysis with all 3 veterinary perspectives, breed-specific guidance, and nutrition recommendations, upgrade to our Complete Analysis for $9.99"
 
-TIER: PAID ($9.99+)
-- Everything from FREE plus complete detailed analysis
-- All blood markers explained
-- Three perspectives (Traditional, Holistic, Hybrid)
-- Breed-specific health guide
-- Nutrition recommendations (heavily disclaimed)
-- Visual health checklist
-- Questions for vet
-- LENGTH: 2500-3500 words
+TIER: PAID ($9.99 - Complete Analysis)
+Generate a comprehensive professional report with:
+- Welcome and blood work overview
+- Detailed traffic light report card for ALL markers
+- Complete analysis from THREE veterinary perspectives:
+  * Dr. Sarah Chen (Traditional DVM) - Clinical interpretation
+  * Dr. Maya Patel (Holistic DVM) - Whole-body assessment  
+  * Dr. Alex Rodriguez (Integrative DVM) - Combined action plan
+- Breed-specific health risks and considerations
+- Nutrition and diet recommendations (heavily disclaimed, FDA-compliant)
+- Visual health monitoring checklist
+- Questions for YOUR veterinarian (from all perspectives)
+- Research citations (AVMA, AAHA, peer-reviewed journals)
+- LENGTH: 2500-4000 words
+- Professional, thorough, actionable
 
-EDUCATIONAL DISCLAIMERS:
+EDUCATIONAL DISCLAIMERS (ALL TIERS):
 - This is educational content only
 - NOT veterinary medical advice
 - NOT diagnosis or treatment
 - Share with licensed veterinarian
-- Does NOT create veterinarian-client-patient relationship
+- Does NOT create veterinarian-client-patient relationship (VCPR)
 
 PROFESSIONAL TONE:
 - Clear, educational language
 - Evidence-based information
-- Cite research when possible (AVMA, AAHA)
+- Cite research when possible (AVMA, AAHA, veterinary journals)
 - Empowering but not alarming
-- Partner with veterinarians, never replace
+- Partner with veterinarians, never replace them
 
-Brand: Pet Health University
-Mission: 🔬 Laboratory Science • 🎓 Educational Excellence • 🐾 Veterinary Expertise
-Tagline: We Teach • Vets Treat • Together = Healthy Pets`;
+Brand: PetLabAI™
+Mission: The First Veterinary-Approved Dog and Cat Blood AI Analysis
+Credentials: Designed by veterinarians and students from UC Davis, Iowa State University, and laboratories nationwide`;
 
   const CANINE_RANGES = `CANINE REFERENCE RANGES:
 RBC: 5.5-8.5 M/μL | Hemoglobin: 12-18 g/dL | Hematocrit: 37-55%
@@ -158,17 +169,10 @@ Potassium: 3.5-5.8 mmol/L`;
             </div>
             
             {/* Value Proposition */}
-            <div className="mb-6">
+            <div className="mb-4">
               <p className="text-base md:text-lg text-gray-600 leading-relaxed max-w-3xl mx-auto">
                 Be educated on how to interpret and improve your Dog and Cat's wellbeing
               </p>
-            </div>
-            
-            {/* Beta Badge - Minimal */}
-            <div className="inline-block">
-              <div className="bg-gradient-to-r from-[#00a0af] to-[#008a97] text-white px-6 py-2 rounded-md text-sm font-medium">
-                Free Beta Program Now Open
-              </div>
             </div>
             
           </div>
@@ -191,20 +195,23 @@ Potassium: 3.5-5.8 mmol/L`;
         
         {/* Hero Section */}
         <div className="text-center mb-10">
-          <div className="inline-block bg-[#00a0af] text-white px-8 py-3 rounded-md font-medium text-base mb-6 shadow-sm">
-            Free Beta Access Available
-          </div>
           <h2 className="text-3xl md:text-4xl font-light text-[#003057] mb-4 leading-tight">
             Professional Blood Work Analysis for Your Pet
           </h2>
-          <p className="text-base md:text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed">
-            Join our beta program to receive comprehensive blood work education designed by 
-            veterinary professionals. Help us refine the platform while gaining valuable insights 
-            into your pet's health markers.
+          <p className="text-base md:text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed mb-4">
+            Get started with a free basic report card, or upgrade to our complete veterinary-approved 
+            analysis with all three doctor perspectives and personalized recommendations.
           </p>
-          <p className="text-sm text-gray-600 mt-4 max-w-2xl mx-auto">
-            Beta participants receive priority access to future features and special pricing.
-          </p>
+          <div className="flex items-center justify-center gap-6 text-sm text-gray-600">
+            <div className="flex items-center gap-2">
+              <span className="text-green-600 font-bold">✓</span>
+              <span>Free Basic Report</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="text-[#00a0af] font-bold">✓</span>
+              <span>$9.99 Complete Analysis</span>
+            </div>
+          </div>
         </div>
 
         {/* Educational Disclaimer */}
@@ -420,149 +427,135 @@ Creatinine: 1.3
               </div>
             )}
 
-            {/* FREE Beta Signup */}
+            {/* Email Capture & Upgrade */}
             {reportTier === 'free' && (
-              <div className="bg-gray-50 border border-gray-300 rounded-lg p-8 shadow-sm">
-                <div className="text-center mb-8">
-                  <h2 className="text-3xl font-light text-[#003057] mb-4">
-                    Join the Beta Program
-                  </h2>
-                  <p className="text-base text-gray-700 max-w-2xl mx-auto mb-6 leading-relaxed">
-                    Access comprehensive blood work analysis at no cost during our beta period. 
-                    Help refine our platform while receiving professional veterinary-approved insights.
-                  </p>
-                  <div className="inline-block bg-blue-50 border border-blue-200 rounded-md px-6 py-3 mb-6">
-                    <p className="text-sm font-medium text-blue-900">
-                      Beta participants receive special pricing when we launch
-                    </p>
-                  </div>
-                </div>
-
-                <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-8">
-                  
-                  {/* Tier 1 Preview */}
-                  <div className="bg-white rounded-lg p-6 border border-gray-200 shadow-sm">
-                    <div className="text-center mb-4 pb-4 border-b border-gray-200">
-                      <div className="text-xs font-semibold text-[#00a0af] mb-2">FREE DURING BETA</div>
-                      <div className="text-2xl font-light text-gray-400 line-through">$9.99</div>
-                      <div className="text-xs text-gray-500 mt-1">After Launch</div>
-                    </div>
-                    <div className="text-sm font-semibold text-[#003057] mb-3">Detailed Analysis</div>
-                    <ul className="text-sm text-gray-700 space-y-2">
-                      <li className="flex items-start gap-2">
-                        <span className="text-[#00a0af] mt-0.5">✓</span>
-                        <span>Complete clinical analysis</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <span className="text-[#00a0af] mt-0.5">✓</span>
-                        <span>All blood markers explained</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <span className="text-[#00a0af] mt-0.5">✓</span>
-                        <span>Breed-specific risk factors</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <span className="text-[#00a0af] mt-0.5">✓</span>
-                        <span>3 follow-up questions</span>
-                      </li>
-                    </ul>
-                  </div>
-
-                  {/* Tier 2 Preview - HIGHLIGHTED */}
-                  <div className="bg-white rounded-lg p-6 border-2 border-[#00a0af] shadow-md relative">
-                    <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-[#00a0af] text-white px-4 py-1 rounded-md text-xs font-medium">
-                      Most Popular
-                    </div>
-                    <div className="text-center mb-4 pb-4 border-b border-gray-200 mt-2">
-                      <div className="text-xs font-semibold text-[#00a0af] mb-2">FREE DURING BETA</div>
-                      <div className="text-2xl font-light text-gray-400 line-through">$19.99</div>
-                      <div className="text-xs text-gray-500 mt-1">After Launch</div>
-                    </div>
-                    <div className="text-sm font-semibold text-[#003057] mb-3">Complete Assessment</div>
-                    <ul className="text-sm text-gray-700 space-y-2">
-                      <li className="flex items-start gap-2">
-                        <span className="text-[#00a0af] mt-0.5">✓</span>
-                        <span>All features from Detailed Analysis</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <span className="text-[#00a0af] mt-0.5">✓</span>
-                        <span>Three veterinary perspectives</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <span className="text-[#00a0af] mt-0.5">✓</span>
-                        <span>Nutrition guidance</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <span className="text-[#00a0af] mt-0.5">✓</span>
-                        <span>Health monitoring checklist</span>
-                      </li>
-                    </ul>
-                  </div>
-
-                  {/* Tier 3 Preview */}
-                  <div className="bg-white rounded-lg p-6 border border-gray-200 shadow-sm">
-                    <div className="text-center mb-4 pb-4 border-b border-gray-200">
-                      <div className="text-xs font-semibold text-[#00a0af] mb-2">FREE DURING BETA</div>
-                      <div className="text-2xl font-light text-gray-400 line-through">$29.99/mo</div>
-                      <div className="text-xs text-gray-500 mt-1">After Launch</div>
-                    </div>
-                    <div className="text-sm font-semibold text-[#003057] mb-3">Professional Membership</div>
-                    <ul className="text-sm text-gray-700 space-y-2">
-                      <li className="flex items-start gap-2">
-                        <span className="text-[#00a0af] mt-0.5">✓</span>
-                        <span>All Complete Assessment features</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <span className="text-[#00a0af] mt-0.5">✓</span>
-                        <span>Unlimited analysis reports</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <span className="text-[#00a0af] mt-0.5">✓</span>
-                        <span>Progress tracking over time</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <span className="text-[#00a0af] mt-0.5">✓</span>
-                        <span>Educational resource library</span>
-                      </li>
-                    </ul>
-                  </div>
-
-                </div>
-
-                {/* Beta Signup Form */}
-                <div className="max-w-2xl mx-auto">
-                  <div className="bg-white rounded-lg p-8 border border-gray-300 shadow-sm">
-                    <h3 className="text-xl font-light text-[#003057] mb-4 text-center">
-                      Request Beta Access
+              <div className="space-y-6">
+                
+                {/* Email Capture for Free Report */}
+                {!userEmail && (
+                  <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+                    <h3 className="text-lg font-semibold text-[#003057] mb-3 text-center">
+                      Save Your Basic Report
                     </h3>
-                    <p className="text-gray-600 mb-6 text-center text-sm">
-                      Enter your email address to receive access to our beta program.
-                      No credit card required.
+                    <p className="text-sm text-gray-700 mb-4 text-center">
+                      Enter your email to receive and save your basic blood work report card.
                     </p>
-                    <div className="flex flex-col sm:flex-row gap-3">
+                    <div className="flex flex-col sm:flex-row gap-3 max-w-xl mx-auto">
                       <input
                         type="email"
                         placeholder="your@email.com"
                         value={userEmail}
                         onChange={(e) => setUserEmail(e.target.value)}
-                        className="flex-1 px-5 py-3 border border-gray-300 rounded-md focus:border-[#00a0af] focus:outline-none focus:ring-1 focus:ring-[#00a0af] text-base"
+                        className="flex-1 px-5 py-3 border border-gray-300 rounded-md focus:border-[#00a0af] focus:outline-none focus:ring-1 focus:ring-[#00a0af]"
                       />
                       <button
                         onClick={handleSaveEmail}
-                        className="bg-gradient-to-r from-[#00a0af] to-[#008a97] hover:from-[#008a97] hover:to-[#007a87] text-white px-8 py-3 rounded-md font-semibold text-base transition shadow-sm whitespace-nowrap"
+                        className="bg-gradient-to-r from-[#00a0af] to-[#008a97] hover:from-[#008a97] hover:to-[#007a87] text-white px-6 py-3 rounded-md font-semibold transition shadow-sm whitespace-nowrap"
                       >
-                        Join Beta Program
+                        Save Report
                       </button>
                     </div>
-                    <p className="text-xs text-gray-500 text-center mt-4">
-                      Beta participants receive priority access and special pricing at launch
+                  </div>
+                )}
+
+                {/* Upgrade to Complete Analysis */}
+                <div className="bg-white border-2 border-[#00a0af] rounded-lg p-8 shadow-md">
+                  <div className="text-center mb-6">
+                    <h2 className="text-2xl font-light text-[#003057] mb-3">
+                      Upgrade to Complete Analysis
+                    </h2>
+                    <p className="text-base text-gray-700 max-w-2xl mx-auto leading-relaxed">
+                      Get the full professional veterinary-approved analysis with all three doctor perspectives, 
+                      breed-specific guidance, and personalized nutrition recommendations.
                     </p>
                   </div>
-                </div>
 
-                <div className="mt-6 text-center text-xs text-gray-500">
-                  <p>Your information is secure and will not be shared with third parties</p>
+                  <div className="max-w-2xl mx-auto mb-6">
+                    <div className="bg-gray-50 rounded-lg p-6 border border-gray-200">
+                      <div className="flex items-center justify-between mb-4 pb-4 border-b border-gray-200">
+                        <div>
+                          <h3 className="text-xl font-semibold text-[#003057]">Complete Analysis</h3>
+                          <p className="text-sm text-gray-600">One-time payment</p>
+                        </div>
+                        <div className="text-right">
+                          <div className="text-3xl font-light text-[#003057]">$9.99</div>
+                        </div>
+                      </div>
+                      
+                      <div className="grid md:grid-cols-2 gap-4 mb-6">
+                        <div>
+                          <p className="text-sm font-semibold text-[#003057] mb-2">Included in Free Report:</p>
+                          <ul className="text-sm text-gray-700 space-y-1">
+                            <li className="flex items-start gap-2">
+                              <span className="text-gray-400 mt-0.5">•</span>
+                              <span>Basic report card (🟢🟡🔴)</span>
+                            </li>
+                            <li className="flex items-start gap-2">
+                              <span className="text-gray-400 mt-0.5">•</span>
+                              <span>Top 3 concerns</span>
+                            </li>
+                            <li className="flex items-start gap-2">
+                              <span className="text-gray-400 mt-0.5">•</span>
+                              <span>Emergency alerts</span>
+                            </li>
+                            <li className="flex items-start gap-2">
+                              <span className="text-gray-400 mt-0.5">•</span>
+                              <span>Questions for your vet</span>
+                            </li>
+                          </ul>
+                        </div>
+                        
+                        <div>
+                          <p className="text-sm font-semibold text-[#00a0af] mb-2">Added with Complete Analysis:</p>
+                          <ul className="text-sm text-gray-700 space-y-1">
+                            <li className="flex items-start gap-2">
+                              <span className="text-[#00a0af] mt-0.5">✓</span>
+                              <span>All 3 veterinary perspectives</span>
+                            </li>
+                            <li className="flex items-start gap-2">
+                              <span className="text-[#00a0af] mt-0.5">✓</span>
+                              <span>Detailed marker explanations</span>
+                            </li>
+                            <li className="flex items-start gap-2">
+                              <span className="text-[#00a0af] mt-0.5">✓</span>
+                              <span>Breed-specific health guidance</span>
+                            </li>
+                            <li className="flex items-start gap-2">
+                              <span className="text-[#00a0af] mt-0.5">✓</span>
+                              <span>Nutrition recommendations</span>
+                            </li>
+                            <li className="flex items-start gap-2">
+                              <span className="text-[#00a0af] mt-0.5">✓</span>
+                              <span>Downloadable PDF report</span>
+                            </li>
+                            <li className="flex items-start gap-2">
+                              <span className="text-[#00a0af] mt-0.5">✓</span>
+                              <span>Research citations (AVMA, AAHA)</span>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+
+                      <a
+                        href={STRIPE_LINKS.tier1}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block w-full bg-gradient-to-r from-[#00a0af] to-[#008a97] hover:from-[#008a97] hover:to-[#007a87] text-white text-center py-4 rounded-md font-semibold text-lg transition shadow-md"
+                      >
+                        Upgrade to Complete Analysis - $9.99
+                      </a>
+                      
+                      <p className="text-xs text-gray-500 text-center mt-3">
+                        Secure payment processed by Stripe • One-time fee • Instant access
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="text-center text-xs text-gray-500">
+                    <p>All payments are secure and encrypted</p>
+                  </div>
                 </div>
+                
               </div>
             )}
           </>
@@ -592,7 +585,7 @@ Creatinine: 1.3
             <div className="text-xs text-gray-500 space-y-1">
               <p>© 2025 Content Crew LLC. All rights reserved.</p>
               <p>Educational content only. Not a substitute for veterinary care.</p>
-              <p>Developed in collaboration with CA Veterinarians and Students from UC Davis, Iowa State University, and laboratories nationwide.</p>
+              <p>Developed in collaboration with veterinarians from UC Davis, Iowa State University, and laboratories nationwide.</p>
             </div>
           </div>
         </div>
