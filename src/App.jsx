@@ -1,4 +1,4 @@
- import { useState } from 'react';
+import { useState } from 'react';
 import { Clock } from 'lucide-react';
 
 const App = () => {
