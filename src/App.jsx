@@ -527,7 +527,6 @@ If your pet has mysterious symptoms or you just want to understand their health 
   // RENDER
   // ============================================================================
 
-  return (
     <div className="min-h-screen bg-gradient-to-br from-stone-50 via-emerald-50 to-blue-50">
       
 <header className="bg-white/90 backdrop-blur-xl border-b border-emerald-100/50 sticky top-0 z-50 shadow-sm">
