@@ -530,7 +530,7 @@ If your pet has mysterious symptoms or you just want to understand their health 
   return (
     <div className="min-h-screen bg-gradient-to-br from-stone-50 via-emerald-50 to-blue-50">
       
-     {/* Header */}
+{/* Header */}
 <header className="bg-white/90 backdrop-blur-xl border-b border-emerald-100/50 sticky top-0 z-50 shadow-sm">
   <div className="max-w-7xl mx-auto px-6 py-4">
     <div className="flex items-center justify-between">
