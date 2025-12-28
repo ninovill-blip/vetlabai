@@ -1,172 +1,200 @@
 import React, { useState, useRef } from 'react';
-import { Upload, FileText, AlertCircle, CheckCircle, Sparkles, Download, Mic, Camera, Image, FileUp, Play, Pause, X, ChevronRight, Zap, Shield, Globe } from 'lucide-react';
+import { Upload, FileText, AlertCircle, CheckCircle, Sparkles, Download, Mic, Camera, FileUp, X, ChevronRight, Zap, Shield, Globe, Gift, Award, Heart, Lock, Share2 } from 'lucide-react';
 
 // ============================================================================
-// VETLABAI 2.0 - PRODUCTION READY GLOBAL PLATFORM
-// Multi-Modal Input: Text | Voice | Photos | PDF Upload | OCR
+// VETLABAI COMPLETE VIRAL SYSTEM
+// First-Mover Global Platform with Multi-Modal Analysis + Viral Unlock
+// Master Prompt V3.0 | "Because Our Pets Cannot Speak"
 // ============================================================================
 
-const SYSTEM_PROMPT = `You are VetLabAI 2.0, an advanced integrative veterinary diagnostic platform using multi-modal AI analysis. You interpret blood work, visual health assessments, owner-reported symptoms, AND revolutionary PetVoice™ AI emotional/health analysis from pet vocalizations.
+const MASTER_PROMPT = `You are VetLabAI, an advanced integrative pet health intelligence platform designed to solve a critical problem: **Our pets cannot speak, yet their health depends entirely on how well we—their guardians—understand their bodies.**
 
-## Multi-Modal Analysis Capabilities
+## THE FUNDAMENTAL PROBLEM
 
-### BLOOD WORK ANALYSIS
-- Extract values from uploaded images/PDFs via OCR
-- Cross-reference with optimal wellness ranges
-- Identify holistic health patterns
+Dogs and cats cannot tell us "My kidney function feels off" or "I'm experiencing early liver stress." They depend completely on us—good, caring pet parents—to **know better**, to **see the patterns**, and to **act early** before small imbalances become serious diseases.
 
-### VISUAL HEALTH ASSESSMENT (from pet photos)
-- Coat condition (shine, thickness, texture)
-- Eye clarity and brightness
-- Body condition score
-- Energy level indicators
-- Breed confirmation
+Traditional veterinary practice creates a critical knowledge gap where pet parents receive numbers without context, vets have limited time, recommendations vary wildly, and small imbalances progress to disease before anyone notices.
 
-### SYMPTOM ANALYSIS (from voice/text)
-- Pattern recognition from owner descriptions
-- Timeline and severity assessment
-- Correlation with blood work findings
+## VETLABAI SOLUTION
 
-### PETVOICE™ AI ANALYSIS (REVOLUTIONARY - WORLD FIRST)
-- Vocal pattern emotion detection (#happy #anxious #pain #playful etc.)
-- Respiratory quality assessment from breathing/bark sounds
-- Voice strength and energy level
-- Pain/distress indicators
-- Behavioral state correlation
-- Health pattern validation through vocal analysis
+**Mission:** Empower pet parents to become the informed health advocates their pets desperately need through comprehensive, integrative analysis delivered instantly, clearly, and actionably.
 
-CRITICAL: When PetVoice™ data is available, ALWAYS correlate vocal patterns with blood work findings. Example:
-"Blood work shows hypothyroid pattern (low T4). PetVoice™ analysis detected #lethargic #weak vocalizations, 
-which strongly supports the hypo-metabolic pattern diagnosis. The combination of low thyroid hormones and 
-decreased vocal energy is highly indicative of thyroid insufficiency."
+**Core Philosophy:** We synthesize the best of ALL veterinary paradigms:
+- **Conventional Medicine**: Diagnostic precision, emergency protocols
+- **Holistic Medicine**: Whole-body pattern recognition, root cause analysis  
+- **Functional Medicine**: Optimal ranges, early intervention, wellness optimization
 
-## Core Analysis Framework
+## YOUR CAPABILITIES
 
-Apply Holistic Pattern Analysis™ methodology:
+You analyze multi-modal health data (blood work + photos + voice + history) to provide:
 
-1. **INSUFFICIENCY PATTERN** - Deficiency/weakness states
-   Voice correlation: #lethargic #weak #calm (low energy vocalizations)
-   
-2. **ACCUMULATION PATTERN** - Excess/stagnation conditions
-   Voice correlation: #anxious #stressed (restless vocalizations)
-   
-3. **INFLAMMATION PATTERN** - Hyperactive responses
-   Voice correlation: #aggressive #protective #distressed (intense vocalizations)
-   
-4. **HYPO-METABOLIC PATTERN** - Slowed metabolism
-   Voice correlation: #lethargic #weak (decreased vocal strength)
-   
-5. **MIXED PATTERNS** - Complex multi-system imbalances
-   Voice correlation: Variable emotional states
+1. **COMPREHENSIVE PATTERN DIAGNOSIS** using Holistic Pattern Analysis™
+2. **CLEAR EXPLANATIONS** in plain language
+3. **ACTIONABLE RECOMMENDATIONS** grounded in evidence
+4. **URGENCY ASSESSMENT** so parents know when to act
+5. **VET DISCUSSION GUIDE** for productive conversations
 
-Organize findings by system:
-- Foundation System (thyroid, hormones, energy) - correlates with vocal energy
-- Detox & Regulation System (liver)
-- Filtration System (kidneys)
-- Digestion System (pancreas, gut)
-- Immunity System (WBC, inflammation) - correlates with stress vocalizations
-- Circulation System (RBC, platelets)
+## HOLISTIC PATTERN ANALYSIS™ METHODOLOGY
 
-## PetVoice™ Integration Examples
+Identify ROOT CAUSES through 5 fundamental imbalance patterns:
 
-High-Impact Correlations:
-- Pain vocalizations (#pain #distressed) + elevated WBC = likely infection/inflammation
-- Weak vocalizations (#lethargic) + low RBC = anemia confirmation
-- Anxious vocalizations (#anxious #stressed) + elevated cortisol = stress-related illness
-- Labored breathing sounds + kidney values = respiratory distress from uremia
-- Aggressive vocalizations (#aggressive #protective) + thyroid changes = hormone-related behavior
+**PATTERN 1: INSUFFICIENCY** (Deficiency/Weakness)
+- Blood: Low RBC, low albumin, low protein, decreased function
+- Physical: Fatigue, weakness, pale gums, poor coat, weight loss
+- Systems: Foundation (thyroid/adrenal), Immunity, Circulation
+- Intervention: Build, nourish, support, restore
 
-## Output Requirements
+**PATTERN 2: ACCUMULATION** (Excess/Stagnation)
+- Blood: High cholesterol, elevated liver enzymes, increased WBC, high BUN
+- Physical: Weight gain, sluggishness, thick discharge, fluid retention
+- Systems: Detox (liver), Filtration (kidneys), Digestion
+- Intervention: Clear, drain, mobilize, eliminate
 
-Provide analysis with:
-- Overall pattern diagnosis with confidence score
-- System-by-system breakdown
-- **PetVoice™ + blood work + visual correlation section** (if voice data available)
-- Breed-specific considerations
-- Actionable recommendations (species-appropriate nutrition)
-- Urgency level (Routine/Soon/Urgent/Emergency)
-- Veterinarian discussion points
-- Retest timeline
+**PATTERN 3: INFLAMMATION** (Heat/Hyperactivity)
+- Blood: Elevated WBC with neutrophils, high CRP, increased liver values
+- Physical: Red gums, panting, fever, restlessness, skin redness, thirst
+- Systems: Immunity, Detox, all tissues
+- Intervention: Cool, calm, soothe, anti-inflammatory support
 
-When PetVoice™ data is included, add special section:
-"🐕 PETVOICE™ AI INSIGHTS:
-Detected emotions: [hashtags]
-Health indicators: [breathing quality, vocal strength]
-Blood work correlation: [how vocal patterns support/contradict blood findings]
-Behavioral recommendations: [based on emotional state + health pattern]"
+**PATTERN 4: HYPO-METABOLIC** (Cold/Underactivity)
+- Blood: Low T4, low energy markers, slow metabolism indicators
+- Physical: Lethargy, cold intolerance, slow healing, low appetite
+- Systems: Foundation (thyroid/adrenal), Metabolism, Circulation
+- Intervention: Activate, energize, warm, stimulate
 
-Always end with comprehensive disclaimer about educational nature and veterinary consultation requirement.`;
+**PATTERN 5: MIXED/COMPLEX** (Combination States)
+- Multiple patterns simultaneously
+- Approach: Address in priority order, support whole-body balance
+
+## ORGAN SYSTEM FRAMEWORK
+
+Organize findings by 7 functional systems:
+- Foundation System (thyroid/adrenal - energy & regulation)
+- Circulation System (RBC - oxygen delivery)
+- Immunity System (WBC - defense)
+- Detox & Regulation (liver - processing)
+- Filtration System (kidneys - elimination)
+- Digestion System (pancreas/gut - absorption)
+- Clotting System (platelets - hemostasis)
+
+## BREED-SPECIFIC INTELLIGENCE
+
+**Sighthounds (Greyhounds, Whippets):**
+- RBC: 7.4-9.0 (vs 5.5-8.5) - HIGHER is NORMAL
+- Platelets: 80-200K (vs 200-500K) - LOWER is NORMAL
+- T4: Up to 5.0 (vs 1.0-4.0) - HIGHER is NORMAL
+
+**High-Risk Hypothyroidism:** Golden Retriever, Labrador, Doberman
+**Addison's Risk:** Standard Poodle, Portuguese Water Dog
+**Pancreatitis-Prone:** Miniature Schnauzer, Yorkshire Terrier
+
+## OUTPUT STRUCTURE FOR BASIC RESULTS (FREE)
+
+Provide a concise executive summary:
+
+**1. OVERALL HEALTH STATUS**
+[Excellent/Good/Fair/Concerning/Critical]
+
+**2. PRIMARY PATTERN IDENTIFIED**
+[Pattern name with confidence level]
+Brief explanation in 2-3 sentences a pet parent can understand
+
+**3. TOP 3 KEY FINDINGS**
+1. [Most significant finding in plain language]
+2. [Second most significant]
+3. [Third most significant]
+
+**4. URGENCY LEVEL**
+[Routine/Soon/Urgent/Emergency] with timeframe
+
+**5. WHAT THIS MEANS**
+2-3 paragraphs explaining the pattern, why it matters, and general direction for addressing it
+
+**6. NEXT STEPS PREVIEW**
+Brief mention that detailed protocols, supplement recommendations, dietary strategies, and vet discussion guides are available in the premium analysis
+
+Keep the free analysis valuable but create clear desire for the comprehensive breakdown, specific recommendations, and actionable protocols in the full guides.
+
+## COMMUNICATION PRINCIPLES
+
+- Write like explaining to a smart, caring friend
+- Use plain language first, technical terms with explanation
+- Acknowledge emotions and empower
+- Be specific and explain WHY
+- Balance urgency with hope
+
+This is **giving pets a voice through science, wisdom, and compassion.**
+
+*Because our pets cannot speak, we must learn to listen—to their blood, their bodies, and the patterns that reveal their truth.*`;
 
 export default function VetLabAI() {
   // ============================================================================
   // STATE MANAGEMENT
   // ============================================================================
   
-  const [step, setStep] = useState('welcome'); // welcome, upload, form, analyzing, results
+  const [step, setStep] = useState('welcome'); // welcome, upload, form, analyzing, basicResults, unlock, complete
+  
   const [petData, setPetData] = useState({
-    name: '',
-    species: 'dog',
-    breed: '',
-    age: '',
-    sex: 'male',
-    neuterStatus: 'neutered',
-    weight: '',
-    concerns: ''
+    name: '', species: 'dog', breed: '', age: '',
+    sex: 'male', neuterStatus: 'neutered', weight: '', concerns: ''
   });
   
   const [uploads, setUploads] = useState({
     bloodWork: null,
     petPhoto: null,
-    ownerPhoto: null
+    unlockPhoto: null,
+    voiceRecording: null
   });
   
   const [labResults, setLabResults] = useState('');
-  const [analysis, setAnalysis] = useState(null);
+  const [basicAnalysis, setBasicAnalysis] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [processingOCR, setProcessingOCR] = useState(false);
   const [voiceRecording, setVoiceRecording] = useState(false);
   const [voiceTranscript, setVoiceTranscript] = useState('');
+  const [recordingTime, setRecordingTime] = useState(0);
   
-  // PetVoice™ AI - Revolutionary Pet Emotion Analysis
-  const [petVoiceRecording, setPetVoiceRecording] = useState(false);
-  const [petVoiceFile, setPetVoiceFile] = useState(null);
-  const [petEmotions, setPetEmotions] = useState([]);
-  const [analyzingPetVoice, setAnalyzingPetVoice] = useState(false);
+  // Unlock progress
+  const [unlockProgress, setUnlockProgress] = useState({
+    photo: false,
+    voice: false,
+    social: false,
+    data: false
+  });
+  
+  const [additionalData, setAdditionalData] = useState({
+    diet: '',
+    activityLevel: '',
+    environment: '',
+    otherPets: '',
+    topConcern: ''
+  });
   
   const fileInputRef = useRef(null);
   const petPhotoRef = useRef(null);
-  const petVoiceFileRef = useRef(null);
+  const unlockPhotoRef = useRef(null);
   const mediaRecorderRef = useRef(null);
-  const petMediaRecorderRef = useRef(null);
+  const recordingTimerRef = useRef(null);
 
   // ============================================================================
-  // FILE UPLOAD HANDLERS
+  // ANALYSIS FLOW - FILE UPLOAD HANDLERS
   // ============================================================================
 
   const handleFileUpload = async (file, type) => {
     if (!file) return;
-
     setUploads(prev => ({ ...prev, [type]: file }));
 
-    // If blood work, trigger OCR
-    if (type === 'bloodWork' && file.type.includes('image') || file.type.includes('pdf')) {
+    if (type === 'bloodWork' && (file.type.includes('image') || file.type.includes('pdf'))) {
       await extractBloodWorkValues(file);
-    }
-
-    // If pet photo, trigger visual analysis
-    if (type === 'petPhoto') {
-      await analyzeVisualHealth(file);
     }
   };
 
   const extractBloodWorkValues = async (file) => {
     setProcessingOCR(true);
     try {
-      // Convert file to base64
       const base64 = await fileToBase64(file);
       
-      // Send to Claude Vision API for OCR
       const response = await fetch('https://api.anthropic.com/v1/messages', {
         method: 'POST',
         headers: {
@@ -182,23 +210,19 @@ export default function VetLabAI() {
             content: [
               {
                 type: 'image',
-                source: {
-                  type: 'base64',
-                  media_type: file.type,
-                  data: base64
-                }
+                source: { type: 'base64', media_type: file.type, data: base64 }
               },
               {
                 type: 'text',
                 text: `Extract all blood test values from this veterinary lab report. Format as:
-                
+
 Parameter: Value (Reference Range)
 
-For example:
+Example:
 RBC: 6.8 (5.5-8.5)
 WBC: 9.2 (6.0-17.0)
 
-Extract ALL visible values. If reference ranges aren't shown, note "range not provided".`
+Extract ALL visible values.`
               }
             ]
           }]
@@ -206,8 +230,7 @@ Extract ALL visible values. If reference ranges aren't shown, note "range not pr
       });
 
       const data = await response.json();
-      const extractedValues = data.content[0].text;
-      setLabResults(extractedValues);
+      setLabResults(data.content[0].text);
       
     } catch (err) {
       console.error('OCR error:', err);
@@ -215,11 +238,6 @@ Extract ALL visible values. If reference ranges aren't shown, note "range not pr
     } finally {
       setProcessingOCR(false);
     }
-  };
-
-  const analyzeVisualHealth = async (file) => {
-    // Visual analysis happens during final analysis
-    console.log('Pet photo uploaded, will analyze during main analysis');
   };
 
   const fileToBase64 = (file) => {
@@ -232,7 +250,7 @@ Extract ALL visible values. If reference ranges aren't shown, note "range not pr
   };
 
   // ============================================================================
-  // VOICE INPUT HANDLERS
+  // VOICE RECORDING (ANALYSIS PHASE)
   // ============================================================================
 
   const startVoiceRecording = async () => {
@@ -266,8 +284,6 @@ Extract ALL visible values. If reference ranges aren't shown, note "range not pr
   };
 
   const transcribeAudio = async (audioBlob) => {
-    // For demo: Use browser's built-in speech recognition
-    // In production: Use OpenAI Whisper API for better accuracy
     const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
     recognition.lang = 'en-US';
     recognition.continuous = false;
@@ -285,133 +301,7 @@ Extract ALL visible values. If reference ranges aren't shown, note "range not pr
   };
 
   // ============================================================================
-  // PETVOICE™ AI - REVOLUTIONARY PET EMOTION ANALYSIS
-  // ============================================================================
-
-  const startPetVoiceRecording = async () => {
-    try {
-      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-      const mediaRecorder = new MediaRecorder(stream);
-      petMediaRecorderRef.current = mediaRecorder;
-
-      const chunks = [];
-      mediaRecorder.ondataavailable = (e) => chunks.push(e.data);
-      
-      mediaRecorder.onstop = async () => {
-        const audioBlob = new Blob(chunks, { type: 'audio/webm' });
-        setPetVoiceFile(audioBlob);
-        await analyzePetVoice(audioBlob);
-        stream.getTracks().forEach(track => track.stop());
-      };
-
-      mediaRecorder.start();
-      setPetVoiceRecording(true);
-    } catch (err) {
-      console.error('Microphone error:', err);
-      setError('Could not access microphone for pet voice recording.');
-    }
-  };
-
-  const stopPetVoiceRecording = () => {
-    if (petMediaRecorderRef.current && petVoiceRecording) {
-      petMediaRecorderRef.current.stop();
-      setPetVoiceRecording(false);
-    }
-  };
-
-  const handlePetVoiceUpload = async (file) => {
-    if (!file) return;
-    setPetVoiceFile(file);
-    await analyzePetVoice(file);
-  };
-
-  const analyzePetVoice = async (audioBlob) => {
-    setAnalyzingPetVoice(true);
-    
-    try {
-      // Convert audio to base64
-      const base64Audio = await new Promise((resolve, reject) => {
-        const reader = new FileReader();
-        reader.onload = () => resolve(reader.result.split(',')[1]);
-        reader.onerror = reject;
-        reader.readAsDataURL(audioBlob);
-      });
-
-      // Send to Claude for analysis
-      const response = await fetch('https://api.anthropic.com/v1/messages', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'x-api-key': import.meta.env.VITE_ANTHROPIC_API_KEY,
-          'anthropic-version': '2023-06-01'
-        },
-        body: JSON.stringify({
-          model: 'claude-sonnet-4-20250514',
-          max_tokens: 500,
-          messages: [{
-            role: 'user',
-            content: `You are PetVoice™ AI, the world's first dog emotion and health analyzer through vocal patterns.
-
-Analyze this dog's vocalization for:
-
-1. EMOTIONAL STATE (select ALL that apply):
-   #happy - Excited, joyful barks with consistent tone
-   #playful - High-energy, varied pitch vocalizations
-   #anxious - Rapid, repetitive, high-pitched sounds
-   #stressed - Whining, pacing-related vocalizations
-   #protective - Deep, warning barks with authority
-   #pain - Sharp yelps, distressed whimpers
-   #calm - Relaxed, low-frequency sounds
-   #excited - Quick succession barks, increasing pitch
-   #fearful - Submissive whines, trembling sounds
-   #aggressive - Sustained growls, threatening tone
-   #lethargic - Weak, low-energy vocalizations
-   #distressed - Urgent, continuous crying/whining
-
-2. HEALTH INDICATORS:
-   - Breathing quality (normal, labored, wheezing)
-   - Voice strength (strong, weak, hoarse)
-   - Respiratory pattern (regular, irregular, gasping)
-   - Pain signals (present/absent)
-
-3. CORRELATION NOTES:
-   - What health patterns might align with this vocal state?
-   - Any urgent concerns based on vocalization?
-
-Format response as:
-EMOTIONS: #tag1 #tag2 #tag3
-HEALTH: [brief assessment]
-CORRELATION: [connection to potential health issues]
-URGENCY: [None/Monitor/Vet Visit/Emergency]
-
-Note: This is audio analysis simulation. Describe what you would listen for in the uploaded audio.`
-          }]
-        })
-      });
-
-      const data = await response.json();
-      const analysis = data.content[0].text;
-      
-      // Parse hashtags from response
-      const hashtagMatches = analysis.match(/#\w+/g) || [];
-      setPetEmotions(hashtagMatches);
-      
-      // Store full analysis for later use
-      setPetData(prev => ({
-        ...prev,
-        petVoiceAnalysis: analysis
-      }));
-
-    } catch (err) {
-      console.error('PetVoice analysis error:', err);
-      setError('Failed to analyze pet voice. Please try again.');
-    } finally {
-      setAnalyzingPetVoice(false);
-    }
-  };
-
-  // ============================================================================
-  // MAIN ANALYSIS FUNCTION
+  // MAIN ANALYSIS FUNCTION (FREE - BASIC RESULTS)
   // ============================================================================
 
   const handleAnalyze = async () => {
@@ -430,33 +320,26 @@ Note: This is audio analysis simulation. Describe what you would listen for in t
     setStep('analyzing');
 
     try {
-      // Build multi-modal context
       const messages = [{
         role: 'user',
         content: []
       }];
 
-      // Add pet photo if uploaded
       if (uploads.petPhoto) {
         const base64Photo = await fileToBase64(uploads.petPhoto);
         messages[0].content.push({
           type: 'image',
-          source: {
-            type: 'base64',
-            media_type: uploads.petPhoto.type,
-            data: base64Photo
-          }
+          source: { type: 'base64', media_type: uploads.petPhoto.type, data: base64Photo }
         });
         messages[0].content.push({
           type: 'text',
-          text: 'Analyze this pet\'s physical appearance for health indicators (coat, eyes, body condition).'
+          text: 'Analyze this pet\'s physical appearance for health indicators.'
         });
       }
 
-      // Add text analysis request
       messages[0].content.push({
         type: 'text',
-        text: `${SYSTEM_PROMPT}
+        text: `${MASTER_PROMPT}
 
 # Pet Information
 Name: ${petData.name}
@@ -466,27 +349,12 @@ Age: ${petData.age} years
 Sex: ${petData.sex} (${petData.neuterStatus})
 Weight: ${petData.weight} lbs
 Owner Concerns: ${petData.concerns || 'None specified'}
-${voiceTranscript ? `Voice Recording Transcript: ${voiceTranscript}` : ''}
+${voiceTranscript ? `Voice Recording: ${voiceTranscript}` : ''}
 
 # Blood Work Results
 ${labResults}
 
-${petData.petVoiceAnalysis ? `
-# 🐕 PETVOICE™ AI ANALYSIS (WORLD FIRST TECHNOLOGY)
-${petData.petVoiceAnalysis}
-
-CRITICAL: Correlate these vocal patterns with blood work findings. This multi-modal analysis 
-combining laboratory data with emotional/vocal assessment provides unprecedented diagnostic insight.
-` : ''}
-
-Please provide comprehensive multi-modal analysis combining:
-- Blood work patterns
-- Visual assessment (if photo provided)
-- Reported symptoms
-- PetVoice™ AI vocal/emotional analysis (if available)
-
-Use Holistic Pattern Analysis™ methodology. When PetVoice™ data is present, include dedicated 
-section showing correlation between vocal patterns and blood work findings.`
+Provide BASIC RESULTS (free preview) as specified in the system prompt. This is the executive summary that creates desire for the complete analysis.`
       });
 
       const response = await fetch('https://api.anthropic.com/v1/messages', {
@@ -498,14 +366,14 @@ section showing correlation between vocal patterns and blood work findings.`
         },
         body: JSON.stringify({
           model: 'claude-sonnet-4-20250514',
-          max_tokens: 4000,
+          max_tokens: 2000,
           messages
         })
       });
 
       const data = await response.json();
-      setAnalysis(data.content[0].text);
-      setStep('results');
+      setBasicAnalysis(data.content[0].text);
+      setStep('basicResults');
     } catch (err) {
       console.error('Analysis error:', err);
       setError('Analysis failed. Please check API key and try again.');
@@ -515,134 +383,145 @@ section showing correlation between vocal patterns and blood work findings.`
     }
   };
 
+  // ============================================================================
+  // UNLOCK SYSTEM - HANDLERS
+  // ============================================================================
+
+  const handleUnlockPhotoUpload = (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+
+    if (!file.type.startsWith('image/')) {
+      alert('That's not a photo! We need to see that adorable face. 📸');
+      return;
+    }
+
+    if (file.size > 10 * 1024 * 1024) {
+      alert('Whoa, that's a big file! Try a smaller photo (under 10MB).');
+      return;
+    }
+
+    setUploads(prev => ({ ...prev, unlockPhoto: file }));
+    setUnlockProgress(prev => ({ ...prev, photo: true }));
+  };
+
+  const startUnlockVoiceRecording = async () => {
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      const mediaRecorder = new MediaRecorder(stream);
+      mediaRecorderRef.current = mediaRecorder;
+
+      const chunks = [];
+      mediaRecorder.ondataavailable = (e) => chunks.push(e.data);
+
+      mediaRecorder.onstop = () => {
+        const audioBlob = new Blob(chunks, { type: 'audio/webm' });
+        setUploads(prev => ({ ...prev, voiceRecording: audioBlob }));
+        setUnlockProgress(prev => ({ ...prev, voice: true }));
+        stream.getTracks().forEach(track => track.stop());
+      };
+
+      mediaRecorder.start();
+      setVoiceRecording(true);
+
+      let time = 0;
+      recordingTimerRef.current = setInterval(() => {
+        time++;
+        setRecordingTime(time);
+        if (time >= 30) stopUnlockVoiceRecording();
+      }, 1000);
+
+    } catch (err) {
+      alert('Oops! We need microphone access. Check your browser permissions.');
+    }
+  };
+
+  const stopUnlockVoiceRecording = () => {
+    if (mediaRecorderRef.current && voiceRecording) {
+      mediaRecorderRef.current.stop();
+      setVoiceRecording(false);
+      clearInterval(recordingTimerRef.current);
+      setRecordingTime(0);
+    }
+  };
+
+  const generateSocialPost = () => {
+    const patternMatch = basicAnalysis?.match(/PATTERN.*?:(.*?)(?:\n|$)/i);
+    const pattern = patternMatch ? patternMatch[1].trim() : 'health pattern';
+    
+    return {
+      text: `Meet ${petData.name}! 🐾
+
+We just used VetLabAI to analyze ${petData.name}'s blood work and discovered they have ${pattern.toLowerCase()}.
+
+The best part? The analysis was FREE and took just 2 minutes! 🎉
+
+Now I understand what's going on and have a clear path forward using holistic nutrition and vet collaboration.
+
+If your pet has mysterious symptoms or you just want to understand their health better, try VetLabAI!
+
+#PetLabAIResults #DogHealth #${petData.breed.replace(/\s/g, '')} #HolisticPetCare`,
+      
+      url: 'https://petlabai.com'
+    };
+  };
+
+  const shareToSocial = (platform) => {
+    const post = generateSocialPost();
+    let url = '';
+    
+    if (platform === 'facebook') {
+      url = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(post.url)}&quote=${encodeURIComponent(post.text)}`;
+    } else if (platform === 'twitter') {
+      url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(post.text)}&url=${encodeURIComponent(post.url)}`;
+    } else if (platform === 'instagram') {
+      navigator.clipboard.writeText(post.text);
+      alert('Caption copied! 📋 Paste it into Instagram with your pet\'s photo.');
+    }
+    
+    if (url) window.open(url, '_blank', 'width=600,height=400');
+    
+    setTimeout(() => {
+      setUnlockProgress(prev => ({ ...prev, social: true }));
+    }, 1000);
+  };
+
+  const handleDataSubmit = () => {
+    if (!additionalData.diet || !additionalData.activityLevel || 
+        !additionalData.environment || !additionalData.otherPets || 
+        !additionalData.topConcern) {
+      alert('Almost there! Fill in all 5 questions. (Your pet is counting on you! 🐕)');
+      return;
+    }
+
+    setUnlockProgress(prev => ({ ...prev, data: true }));
+  };
+
+  const handleUnlock = () => {
+    const completionPercentage = Object.values(unlockProgress).filter(Boolean).length * 25;
+    
+    if (completionPercentage !== 100) {
+      alert('Not quite yet! Complete all 4 steps to unlock your guides.');
+      return;
+    }
+
+    // In production: Send data to server, generate download tokens, send email
+    setStep('complete');
+  };
+
   const handleReset = () => {
     setStep('welcome');
-    setPetData({
-      name: '', species: 'dog', breed: '', age: '',
-      sex: 'male', neuterStatus: 'neutered', weight: '', concerns: ''
-    });
-    setUploads({ bloodWork: null, petPhoto: null, ownerPhoto: null });
+    setPetData({ name: '', species: 'dog', breed: '', age: '', sex: 'male', neuterStatus: 'neutered', weight: '', concerns: '' });
+    setUploads({ bloodWork: null, petPhoto: null, unlockPhoto: null, voiceRecording: null });
     setLabResults('');
-    setAnalysis(null);
+    setBasicAnalysis(null);
     setVoiceTranscript('');
+    setUnlockProgress({ photo: false, voice: false, social: false, data: false });
+    setAdditionalData({ diet: '', activityLevel: '', environment: '', otherPets: '', topConcern: '' });
   };
 
-  const exportToPDF = () => {
-    const printContent = `
-      <html>
-        <head>
-          <title>VetLabAI Analysis - ${petData.name}</title>
-          <style>
-            @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600&display=swap');
-            body { 
-              font-family: 'Inter', sans-serif; 
-              max-width: 900px; 
-              margin: 40px auto; 
-              padding: 40px;
-              background: #fafaf9;
-            }
-            h1 { 
-              font-family: 'Playfair Display', serif;
-              color: #059669; 
-              font-size: 36px;
-              margin-bottom: 10px;
-            }
-            .header { 
-              border-bottom: 4px solid #059669; 
-              padding-bottom: 20px; 
-              margin-bottom: 30px; 
-            }
-            .badge {
-              display: inline-block;
-              background: linear-gradient(135deg, #059669, #0284c7);
-              color: white;
-              padding: 8px 16px;
-              border-radius: 20px;
-              font-size: 12px;
-              font-weight: 600;
-              margin-bottom: 20px;
-            }
-            .info { 
-              background: linear-gradient(to br, #f0fdf4, #eff6ff);
-              padding: 20px; 
-              border-radius: 12px; 
-              margin-bottom: 20px;
-              border-left: 4px solid #059669;
-            }
-            .analysis {
-              background: white;
-              padding: 30px;
-              border-radius: 12px;
-              box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            }
-            .disclaimer { 
-              background: #fef3c7; 
-              padding: 20px; 
-              border-radius: 12px; 
-              margin-top: 30px; 
-              border-left: 4px solid #f59e0b;
-            }
-            pre { 
-              white-space: pre-wrap; 
-              line-height: 1.8;
-              font-family: 'Inter', sans-serif;
-            }
-            .footer {
-              text-align: center;
-              margin-top: 40px;
-              padding-top: 20px;
-              border-top: 1px solid #e5e7eb;
-              color: #6b7280;
-              font-size: 14px;
-            }
-          </style>
-        </head>
-        <body>
-          <div class="header">
-            <div class="badge">🐾 VetLabAI 2.0 - Multi-Modal Analysis</div>
-            <h1>Integrative Health Analysis</h1>
-            <p style="color: #6b7280; font-size: 14px;"><strong>Generated:</strong> ${new Date().toLocaleString()}</p>
-          </div>
-          
-          <div class="info">
-            <h2 style="margin-top: 0;">Pet Profile</h2>
-            <p><strong>Name:</strong> ${petData.name}</p>
-            <p><strong>Breed:</strong> ${petData.breed} (${petData.species})</p>
-            <p><strong>Age:</strong> ${petData.age} years | <strong>Weight:</strong> ${petData.weight} lbs</p>
-            <p><strong>Sex:</strong> ${petData.sex} (${petData.neuterStatus})</p>
-            ${petData.concerns ? `<p><strong>Concerns:</strong> ${petData.concerns}</p>` : ''}
-            ${uploads.petPhoto ? '<p><strong>✓</strong> Visual health assessment included</p>' : ''}
-            ${voiceTranscript ? `<p><strong>Voice Notes:</strong> ${voiceTranscript}</p>` : ''}
-          </div>
-
-          <div class="analysis">
-            <h2>Holistic Pattern Analysis™</h2>
-            <pre>${analysis}</pre>
-          </div>
-
-          <div class="disclaimer">
-            <strong>⚠️ IMPORTANT MEDICAL DISCLAIMER</strong><br><br>
-            This analysis is for educational purposes only and does not constitute veterinary medical advice, diagnosis, or treatment. 
-            VetLabAI uses advanced AI and integrative veterinary methodologies to help you understand your pet's health patterns.<br><br>
-            <strong>All interpretations must be discussed with your licensed veterinarian</strong>, who has access to complete medical 
-            history and can perform physical examination. If your pet shows signs of illness or distress, contact your veterinarian 
-            or emergency clinic immediately.
-          </div>
-
-          <div class="footer">
-            <strong>VetLabAI 2.0</strong> | Evidence-Based Integrative Pet Health<br>
-            Powered by Advanced Multi-Modal AI Analysis<br>
-            © ${new Date().getFullYear()} Baiopet™ - Content Crew LLC. All rights reserved.
-          </div>
-        </body>
-      </html>
-    `;
-
-    const printWindow = window.open('', '_blank');
-    printWindow.document.write(printContent);
-    printWindow.document.close();
-    printWindow.print();
-  };
+  const completionPercentage = Object.values(unlockProgress).filter(Boolean).length * 25;
+  const isFullyUnlocked = completionPercentage === 100;
 
   // ============================================================================
   // RENDER
@@ -650,7 +529,8 @@ section showing correlation between vocal patterns and blood work findings.`
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-stone-50 via-emerald-50 to-blue-50">
-      {/* Premium Header */}
+      
+      {/* Header */}
       <header className="bg-white/90 backdrop-blur-xl border-b border-emerald-100/50 sticky top-0 z-50 shadow-sm">
         <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
@@ -659,21 +539,15 @@ section showing correlation between vocal patterns and blood work findings.`
                 <Sparkles className="w-7 h-7 text-white" />
               </div>
               <div>
-                <h1 className="text-2xl font-bold bg-gradient-to-r from-emerald-600 to-blue-600 bg-clip-text text-transparent tracking-tight" style={{fontFamily: 'Playfair Display, serif'}}>
-                  VetLabAI 2.0
+                <h1 className="text-2xl font-bold bg-gradient-to-r from-emerald-600 to-blue-600 bg-clip-text text-transparent" style={{fontFamily: 'Playfair Display, serif'}}>
+                  VetLabAI
                 </h1>
                 <p className="text-xs text-gray-600 font-medium">Multi-Modal Health Intelligence</p>
               </div>
             </div>
-            <div className="flex items-center gap-6">
-              <div className="hidden md:flex items-center gap-3 text-sm text-gray-600">
-                <Globe className="w-4 h-4 text-emerald-600" />
-                <span>Global Platform</span>
-              </div>
-              <div className="text-right">
-                <p className="text-sm font-semibold text-gray-800">Baiopet™</p>
-                <p className="text-xs text-gray-500">Professional Edition</p>
-              </div>
+            <div className="text-right">
+              <p className="text-sm font-semibold text-gray-800">Baiopet™</p>
+              <p className="text-xs text-gray-500">Professional Edition</p>
             </div>
           </div>
         </div>
@@ -682,117 +556,88 @@ section showing correlation between vocal patterns and blood work findings.`
       {/* Main Content */}
       <main className="max-w-7xl mx-auto px-6 py-12">
         
-        {/* Welcome Screen */}
+        {/* WELCOME SCREEN */}
         {step === 'welcome' && (
           <div className="text-center space-y-8 animate-fadeIn">
-            {/* Hero */}
             <div className="space-y-4 max-w-4xl mx-auto">
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-100 text-emerald-800 rounded-full text-sm font-semibold">
                 <Zap className="w-4 h-4" />
-                Professional Global Platform
+                First-Mover Global Platform
               </div>
-              <h2 className="text-5xl md:text-6xl font-bold text-gray-900 leading-tight tracking-tight" style={{fontFamily: 'Playfair Display, serif'}}>
-                Next-Generation<br />
+              <h2 className="text-5xl md:text-6xl font-bold text-gray-900 leading-tight" style={{fontFamily: 'Playfair Display, serif'}}>
+                Your Pet's Voice<br />
                 <span className="bg-gradient-to-r from-emerald-600 via-blue-600 to-indigo-600 bg-clip-text text-transparent">
-                  Pet Health Intelligence
+                  Through Science
                 </span>
               </h2>
-              <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
-                Upload photos, speak symptoms, or drag & drop reports. Our multi-modal AI analyzes everything 
-                instantly with Holistic Pattern Analysis™
+              <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+                Because our pets cannot speak, we give them a voice through comprehensive analysis and Holistic Pattern Analysis™
               </p>
             </div>
 
-            {/* Feature Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
-              <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 border border-emerald-100 hover:shadow-2xl hover:scale-105 transition-all group">
-                <div className="w-16 h-16 bg-gradient-to-br from-emerald-100 to-emerald-200 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mt-12">
+              <div className="bg-white/80 rounded-3xl p-8 border border-emerald-100 hover:shadow-2xl hover:scale-105 transition-all">
+                <div className="w-16 h-16 bg-gradient-to-br from-emerald-100 to-emerald-200 rounded-2xl flex items-center justify-center mb-4">
                   <Camera className="w-8 h-8 text-emerald-600" />
                 </div>
-                <h3 className="font-bold text-gray-900 mb-2 text-lg">Photo Upload</h3>
-                <p className="text-sm text-gray-600">Snap or upload blood work reports & pet photos for instant OCR extraction</p>
+                <h3 className="font-bold text-gray-900 mb-2">Photo Upload</h3>
+                <p className="text-sm text-gray-600">Instant OCR extraction from blood work reports</p>
               </div>
 
-              <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 border border-blue-100 hover:shadow-2xl hover:scale-105 transition-all group">
-                <div className="w-16 h-16 bg-gradient-to-br from-blue-100 to-blue-200 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+              <div className="bg-white/80 rounded-3xl p-8 border border-blue-100 hover:shadow-2xl hover:scale-105 transition-all">
+                <div className="w-16 h-16 bg-gradient-to-br from-blue-100 to-blue-200 rounded-2xl flex items-center justify-center mb-4">
                   <Mic className="w-8 h-8 text-blue-600" />
                 </div>
-                <h3 className="font-bold text-gray-900 mb-2 text-lg">Voice Input</h3>
-                <p className="text-sm text-gray-600">Speak symptoms naturally - AI transcribes & analyzes in 10+ languages</p>
+                <h3 className="font-bold text-gray-900 mb-2">Voice Input</h3>
+                <p className="text-sm text-gray-600">Speak symptoms - AI transcribes instantly</p>
               </div>
 
-              <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 border border-purple-100 hover:shadow-2xl hover:scale-105 transition-all group relative overflow-hidden">
-                <div className="absolute top-2 right-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white px-2 py-0.5 rounded-full text-xs font-bold">
-                  NEW!
+              <div className="bg-white/80 rounded-3xl p-8 border border-indigo-100 hover:shadow-2xl hover:scale-105 transition-all">
+                <div className="w-16 h-16 bg-gradient-to-br from-indigo-100 to-indigo-200 rounded-2xl flex items-center justify-center mb-4">
+                  <Sparkles className="w-8 h-8 text-indigo-600" />
                 </div>
-                <div className="w-16 h-16 bg-gradient-to-br from-purple-100 to-pink-200 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                  <Mic className="w-8 h-8 text-purple-600" />
-                </div>
-                <h3 className="font-bold text-gray-900 mb-2 text-lg">PetVoice™ AI</h3>
-                <p className="text-sm text-gray-600">World first! Upload dog's bark/sounds - AI detects emotions & health via vocal analysis</p>
+                <h3 className="font-bold text-gray-900 mb-2">Pattern Analysis</h3>
+                <p className="text-sm text-gray-600">Holistic Pattern Analysis™ reveals root causes</p>
               </div>
 
-              <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 border border-indigo-100 hover:shadow-2xl hover:scale-105 transition-all group">
-                <div className="w-16 h-16 bg-gradient-to-br from-indigo-100 to-indigo-200 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                  <Shield className="w-8 h-8 text-indigo-600" />
+              <div className="bg-white/80 rounded-3xl p-8 border border-purple-100 hover:shadow-2xl hover:scale-105 transition-all">
+                <div className="w-16 h-16 bg-gradient-to-br from-purple-100 to-purple-200 rounded-2xl flex items-center justify-center mb-4">
+                  <Shield className="w-8 h-8 text-purple-600" />
                 </div>
-                <h3 className="font-bold text-gray-900 mb-2 text-lg">Secure & Private</h3>
-                <p className="text-sm text-gray-600">End-to-end encrypted. Your data never stored. HIPAA-compliant infrastructure</p>
+                <h3 className="font-bold text-gray-900 mb-2">Secure & Private</h3>
+                <p className="text-sm text-gray-600">Your data never stored</p>
               </div>
             </div>
 
-            {/* CTA */}
             <button
               onClick={() => setStep('upload')}
-              className="mt-8 px-12 py-5 bg-gradient-to-r from-emerald-600 to-blue-600 text-white rounded-2xl font-bold text-lg hover:shadow-2xl hover:scale-105 transition-all inline-flex items-center gap-3 group"
+              className="mt-8 px-12 py-5 bg-gradient-to-r from-emerald-600 to-blue-600 text-white rounded-2xl font-bold text-lg hover:shadow-2xl hover:scale-105 transition-all inline-flex items-center gap-3"
             >
-              <span>Start Analysis</span>
-              <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              <span>Start FREE Analysis</span>
+              <ChevronRight className="w-5 h-5" />
             </button>
-
-            {/* Trust Badges */}
-            <div className="flex items-center justify-center gap-8 mt-12 text-sm text-gray-500">
-              <div className="flex items-center gap-2">
-                <CheckCircle className="w-4 h-4 text-emerald-600" />
-                <span>Evidence-Based</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle className="w-4 h-4 text-emerald-600" />
-                <span>40+ Breeds</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle className="w-4 h-4 text-emerald-600" />
-                <span>10+ Languages</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle className="w-4 h-4 text-emerald-600" />
-                <span>Instant Results</span>
-              </div>
-            </div>
           </div>
         )}
 
-        {/* Upload Screen */}
+        {/* UPLOAD SCREEN */}
         {step === 'upload' && (
           <div className="space-y-8 animate-fadeIn max-w-5xl mx-auto">
             <div className="text-center space-y-2">
               <h2 className="text-4xl font-bold text-gray-900" style={{fontFamily: 'Playfair Display, serif'}}>
                 Upload Your Pet's Information
               </h2>
-              <p className="text-gray-600">Choose how you'd like to provide information - mix and match for best results</p>
+              <p className="text-gray-600">Multi-modal input for comprehensive analysis</p>
             </div>
 
-            {/* Upload Options Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               
-              {/* Blood Work Upload */}
-              <div className="bg-white rounded-3xl p-8 border-2 border-dashed border-emerald-200 hover:border-emerald-400 transition-all group">
+              <div className="bg-white rounded-3xl p-8 border-2 border-dashed border-emerald-200 hover:border-emerald-400 transition-all">
                 <div className="text-center space-y-4">
-                  <div className="w-20 h-20 mx-auto bg-emerald-100 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <div className="w-20 h-20 mx-auto bg-emerald-100 rounded-2xl flex items-center justify-center">
                     <FileUp className="w-10 h-10 text-emerald-600" />
                   </div>
                   <h3 className="text-xl font-bold text-gray-900">Blood Work Report</h3>
-                  <p className="text-sm text-gray-600">Upload PDF or photo - AI extracts all values automatically</p>
+                  <p className="text-sm text-gray-600">AI extracts all values automatically</p>
                   
                   {uploads.bloodWork ? (
                     <div className="bg-emerald-50 p-4 rounded-xl">
@@ -801,19 +646,14 @@ section showing correlation between vocal patterns and blood work findings.`
                           <CheckCircle className="w-5 h-5 text-emerald-600" />
                           <span className="text-sm font-semibold text-emerald-900">{uploads.bloodWork.name}</span>
                         </div>
-                        <button onClick={() => setUploads(prev => ({ ...prev, bloodWork: null }))} className="text-emerald-600 hover:text-emerald-800">
+                        <button onClick={() => setUploads(prev => ({ ...prev, bloodWork: null }))} className="text-emerald-600">
                           <X className="w-5 h-5" />
                         </button>
                       </div>
-                      {processingOCR && (
-                        <div className="mt-2 text-xs text-emerald-700 flex items-center gap-2">
-                          <div className="w-3 h-3 border-2 border-emerald-600 border-t-transparent rounded-full animate-spin" />
-                          Extracting values...
-                        </div>
-                      )}
+                      {processingOCR && <div className="mt-2 text-xs text-emerald-700">Extracting values...</div>}
                     </div>
                   ) : (
-                    <div>
+                    <>
                       <input
                         ref={fileInputRef}
                         type="file"
@@ -823,23 +663,22 @@ section showing correlation between vocal patterns and blood work findings.`
                       />
                       <button
                         onClick={() => fileInputRef.current?.click()}
-                        className="w-full px-6 py-3 bg-emerald-600 text-white rounded-xl font-semibold hover:bg-emerald-700 transition-colors"
+                        className="w-full px-6 py-3 bg-emerald-600 text-white rounded-xl font-semibold hover:bg-emerald-700"
                       >
                         Choose File or Snap Photo
                       </button>
-                    </div>
+                    </>
                   )}
                 </div>
               </div>
 
-              {/* Pet Photo Upload */}
-              <div className="bg-white rounded-3xl p-8 border-2 border-dashed border-blue-200 hover:border-blue-400 transition-all group">
+              <div className="bg-white rounded-3xl p-8 border-2 border-dashed border-blue-200 hover:border-blue-400 transition-all">
                 <div className="text-center space-y-4">
-                  <div className="w-20 h-20 mx-auto bg-blue-100 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <div className="w-20 h-20 mx-auto bg-blue-100 rounded-2xl flex items-center justify-center">
                     <Camera className="w-10 h-10 text-blue-600" />
                   </div>
                   <h3 className="text-xl font-bold text-gray-900">Pet Photo</h3>
-                  <p className="text-sm text-gray-600">AI analyzes coat, eyes, energy level, body condition</p>
+                  <p className="text-sm text-gray-600">Visual health assessment</p>
                   
                   {uploads.petPhoto ? (
                     <div className="bg-blue-50 p-4 rounded-xl">
@@ -848,13 +687,13 @@ section showing correlation between vocal patterns and blood work findings.`
                           <CheckCircle className="w-5 h-5 text-blue-600" />
                           <span className="text-sm font-semibold text-blue-900">{uploads.petPhoto.name}</span>
                         </div>
-                        <button onClick={() => setUploads(prev => ({ ...prev, petPhoto: null }))} className="text-blue-600 hover:text-blue-800">
+                        <button onClick={() => setUploads(prev => ({ ...prev, petPhoto: null }))} className="text-blue-600">
                           <X className="w-5 h-5" />
                         </button>
                       </div>
                     </div>
                   ) : (
-                    <div>
+                    <>
                       <input
                         ref={petPhotoRef}
                         type="file"
@@ -865,159 +704,25 @@ section showing correlation between vocal patterns and blood work findings.`
                       />
                       <button
                         onClick={() => petPhotoRef.current?.click()}
-                        className="w-full px-6 py-3 bg-blue-600 text-white rounded-xl font-semibold hover:bg-blue-700 transition-colors"
+                        className="w-full px-6 py-3 bg-blue-600 text-white rounded-xl font-semibold hover:bg-blue-700"
                       >
                         Upload Pet Photo
                       </button>
-                    </div>
+                    </>
                   )}
-                </div>
-              </div>
-
-            </div>
-
-            {/* PetVoice™ AI - REVOLUTIONARY FEATURE */}
-            <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-3xl p-8 border-2 border-purple-200 relative overflow-hidden">
-              {/* Badge */}
-              <div className="absolute top-4 right-4">
-                <div className="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1">
-                  <Sparkles className="w-3 h-3" />
-                  WORLD FIRST
-                </div>
-              </div>
-
-              <div className="flex items-start gap-6">
-                <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg">
-                  <Mic className="w-8 h-8 text-white" />
-                </div>
-                <div className="flex-1 space-y-4">
-                  <div>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-1" style={{fontFamily: 'Playfair Display, serif'}}>
-                      🐕 PetVoice™ AI
-                    </h3>
-                    <p className="text-sm text-purple-800 font-semibold mb-2">
-                      World's First Dog Emotion Analyzer
-                    </p>
-                    <p className="text-sm text-gray-600">
-                      Record or upload your dog's bark, whine, or breathing sounds. Our AI analyzes vocal patterns 
-                      to detect emotions and health indicators - correlating with blood work for complete insights.
-                    </p>
-                  </div>
-
-                  {/* Emotion Tags Display */}
-                  {petEmotions.length > 0 && (
-                    <div className="bg-white/80 backdrop-blur-sm p-4 rounded-xl border border-purple-200">
-                      <p className="text-xs font-semibold text-purple-900 mb-2">DETECTED EMOTIONS:</p>
-                      <div className="flex flex-wrap gap-2">
-                        {petEmotions.map((emotion, idx) => (
-                          <span 
-                            key={idx}
-                            className="px-3 py-1 bg-gradient-to-r from-purple-100 to-pink-100 text-purple-900 rounded-full text-sm font-semibold border border-purple-200"
-                          >
-                            {emotion}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-
-                  {/* Upload/Record Options */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                    {/* Record Live */}
-                    <button
-                      onClick={petVoiceRecording ? stopPetVoiceRecording : startPetVoiceRecording}
-                      disabled={analyzingPetVoice}
-                      className={`px-4 py-3 rounded-xl font-semibold transition-all inline-flex items-center justify-center gap-2 ${
-                        petVoiceRecording 
-                          ? 'bg-red-600 text-white hover:bg-red-700 animate-pulse' 
-                          : 'bg-gradient-to-r from-purple-600 to-pink-600 text-white hover:shadow-lg'
-                      } disabled:opacity-50`}
-                    >
-                      {petVoiceRecording ? (
-                        <>
-                          <div className="w-2 h-2 bg-white rounded-full animate-pulse" />
-                          Recording... Tap to Stop
-                        </>
-                      ) : (
-                        <>
-                          <Mic className="w-5 h-5" />
-                          Record Pet's Voice
-                        </>
-                      )}
-                    </button>
-
-                    {/* Upload File */}
-                    <div>
-                      <input
-                        ref={petVoiceFileRef}
-                        type="file"
-                        accept="audio/*"
-                        onChange={(e) => handlePetVoiceUpload(e.target.files[0])}
-                        className="hidden"
-                      />
-                      <button
-                        onClick={() => petVoiceFileRef.current?.click()}
-                        disabled={analyzingPetVoice}
-                        className="w-full px-4 py-3 bg-white border-2 border-purple-300 text-purple-700 rounded-xl font-semibold hover:bg-purple-50 transition-colors disabled:opacity-50 inline-flex items-center justify-center gap-2"
-                      >
-                        <Upload className="w-5 h-5" />
-                        Upload Audio File
-                      </button>
-                    </div>
-                  </div>
-
-                  {/* Processing State */}
-                  {analyzingPetVoice && (
-                    <div className="bg-purple-100 p-3 rounded-xl flex items-center gap-3">
-                      <div className="w-5 h-5 border-2 border-purple-600 border-t-transparent rounded-full animate-spin" />
-                      <span className="text-sm text-purple-900 font-semibold">
-                        Analyzing vocal patterns with PetVoice™ AI...
-                      </span>
-                    </div>
-                  )}
-
-                  {/* File Uploaded Indicator */}
-                  {petVoiceFile && !analyzingPetVoice && (
-                    <div className="bg-purple-100 p-3 rounded-xl flex items-center justify-between">
-                      <div className="flex items-center gap-2">
-                        <CheckCircle className="w-5 h-5 text-purple-600" />
-                        <span className="text-sm text-purple-900 font-semibold">
-                          Pet voice recorded
-                        </span>
-                      </div>
-                      <button 
-                        onClick={() => {
-                          setPetVoiceFile(null);
-                          setPetEmotions([]);
-                        }}
-                        className="text-purple-600 hover:text-purple-800"
-                      >
-                        <X className="w-5 h-5" />
-                      </button>
-                    </div>
-                  )}
-
-                  {/* Info Box */}
-                  <div className="bg-gradient-to-r from-purple-100 to-pink-100 p-4 rounded-xl border border-purple-200">
-                    <p className="text-xs text-purple-900">
-                      <strong>💡 Pro Tip:</strong> For best results, record during different activities: 
-                      resting, playing, eating, or when showing symptoms. Multiple recordings give deeper insights!
-                    </p>
-                  </div>
                 </div>
               </div>
             </div>
 
-            {/* Voice Input */}
             <div className="bg-white rounded-3xl p-8 border border-indigo-200">
               <div className="flex items-start gap-6">
-                <div className="w-16 h-16 bg-indigo-100 rounded-2xl flex items-center justify-center flex-shrink-0">
+                <div className="w-16 h-16 bg-indigo-100 rounded-2xl flex items-center justify-center">
                   <Mic className="w-8 h-8 text-indigo-600" />
                 </div>
                 <div className="flex-1 space-y-4">
                   <div>
                     <h3 className="text-xl font-bold text-gray-900 mb-2">Voice Description</h3>
-                    <p className="text-sm text-gray-600">Describe symptoms, concerns, or recent changes in your pet's health</p>
+                    <p className="text-sm text-gray-600">Describe symptoms or concerns</p>
                   </div>
                   
                   {voiceTranscript && (
@@ -1028,56 +733,41 @@ section showing correlation between vocal patterns and blood work findings.`
 
                   <button
                     onClick={voiceRecording ? stopVoiceRecording : startVoiceRecording}
-                    className={`px-6 py-3 rounded-xl font-semibold transition-all inline-flex items-center gap-2 ${
-                      voiceRecording 
-                        ? 'bg-red-600 text-white hover:bg-red-700' 
-                        : 'bg-indigo-600 text-white hover:bg-indigo-700'
+                    className={`px-6 py-3 rounded-xl font-semibold inline-flex items-center gap-2 ${
+                      voiceRecording ? 'bg-red-600 text-white' : 'bg-indigo-600 text-white'
                     }`}
                   >
-                    {voiceRecording ? (
-                      <>
-                        <Pause className="w-5 h-5" />
-                        Stop Recording
-                      </>
-                    ) : (
-                      <>
-                        <Mic className="w-5 h-5" />
-                        Start Recording
-                      </>
-                    )}
+                    <Mic className="w-5 h-5" />
+                    {voiceRecording ? 'Stop Recording' : 'Start Recording'}
                   </button>
                 </div>
               </div>
             </div>
 
-            {/* Continue Button */}
             <div className="text-center">
               <button
                 onClick={() => setStep('form')}
                 disabled={!uploads.bloodWork && !labResults}
-                className="px-12 py-4 bg-gradient-to-r from-emerald-600 to-blue-600 text-white rounded-2xl font-bold text-lg hover:shadow-2xl hover:scale-105 transition-all disabled:opacity-50 disabled:cursor-not-allowed inline-flex items-center gap-3"
+                className="px-12 py-4 bg-gradient-to-r from-emerald-600 to-blue-600 text-white rounded-2xl font-bold text-lg hover:shadow-2xl hover:scale-105 transition-all disabled:opacity-50 inline-flex items-center gap-3"
               >
                 Continue to Pet Details
                 <ChevronRight className="w-5 h-5" />
               </button>
-              {!uploads.bloodWork && !labResults && (
-                <p className="text-sm text-gray-500 mt-2">Please upload blood work to continue</p>
-              )}
             </div>
           </div>
         )}
 
-        {/* Form Screen - Similar to before but enhanced */}
+        {/* FORM SCREEN */}
         {step === 'form' && (
           <div className="space-y-8 animate-fadeIn max-w-4xl mx-auto">
-            <div className="text-center space-y-2">
-              <h2 className="text-4xl font-bold text-gray-900" style={{fontFamily: 'Playfair Display, serif'}}>
+            <div className="text-center">
+              <h2 className="text-4xl font-bold text-gray-900 mb-2" style={{fontFamily: 'Playfair Display, serif'}}>
                 Pet Profile Details
               </h2>
-              <p className="text-gray-600">Help us understand your pet better for accurate pattern analysis</p>
+              <p className="text-gray-600">Help us understand your pet for accurate analysis</p>
             </div>
 
-            <div className="bg-white rounded-3xl p-8 border border-emerald-100 shadow-xl">
+            <div className="bg-white rounded-3xl p-8 shadow-xl">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 
                 <div>
@@ -1087,7 +777,7 @@ section showing correlation between vocal patterns and blood work findings.`
                     value={petData.name}
                     onChange={(e) => setPetData({...petData, name: e.target.value})}
                     placeholder="e.g., Max"
-                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all"
+                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-emerald-500"
                   />
                 </div>
 
@@ -1098,7 +788,7 @@ section showing correlation between vocal patterns and blood work findings.`
                     value={petData.breed}
                     onChange={(e) => setPetData({...petData, breed: e.target.value})}
                     placeholder="e.g., Golden Retriever"
-                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all"
+                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-emerald-500"
                   />
                 </div>
 
@@ -1109,7 +799,7 @@ section showing correlation between vocal patterns and blood work findings.`
                     value={petData.age}
                     onChange={(e) => setPetData({...petData, age: e.target.value})}
                     placeholder="e.g., 5"
-                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all"
+                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-emerald-500"
                   />
                 </div>
 
@@ -1120,7 +810,7 @@ section showing correlation between vocal patterns and blood work findings.`
                     value={petData.weight}
                     onChange={(e) => setPetData({...petData, weight: e.target.value})}
                     placeholder="e.g., 65"
-                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all"
+                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-emerald-500"
                   />
                 </div>
 
@@ -1129,7 +819,7 @@ section showing correlation between vocal patterns and blood work findings.`
                   <select
                     value={petData.sex}
                     onChange={(e) => setPetData({...petData, sex: e.target.value})}
-                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all"
+                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-emerald-500"
                   >
                     <option value="male">Male</option>
                     <option value="female">Female</option>
@@ -1141,7 +831,7 @@ section showing correlation between vocal patterns and blood work findings.`
                   <select
                     value={petData.neuterStatus}
                     onChange={(e) => setPetData({...petData, neuterStatus: e.target.value})}
-                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all"
+                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-emerald-500"
                   >
                     <option value="neutered">Neutered/Spayed</option>
                     <option value="intact">Intact</option>
@@ -1155,29 +845,26 @@ section showing correlation between vocal patterns and blood work findings.`
                     onChange={(e) => setPetData({...petData, concerns: e.target.value})}
                     placeholder="Any other symptoms or concerns..."
                     rows="3"
-                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all resize-none"
+                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-emerald-500 resize-none"
                   />
                 </div>
 
               </div>
             </div>
 
-            {/* Manual Blood Work Entry (if OCR failed or manual preferred) */}
             {!labResults && (
-              <div className="bg-white rounded-3xl p-8 border border-emerald-100 shadow-xl">
-                <h3 className="text-xl font-bold text-gray-900 mb-4">Manual Blood Work Entry</h3>
-                <p className="text-sm text-gray-600 mb-4">If OCR didn't extract values, you can enter them manually:</p>
+              <div className="bg-white rounded-3xl p-8 shadow-xl">
+                <h3 className="text-xl font-bold mb-4">Manual Blood Work Entry</h3>
                 <textarea
                   value={labResults}
                   onChange={(e) => setLabResults(e.target.value)}
-                  placeholder="RBC: 6.8 (5.5-8.5)&#10;WBC: 9.2 (6.0-17.0)&#10;ALT: 45 (10-100)&#10;..."
+                  placeholder="RBC: 6.8 (5.5-8.5)&#10;WBC: 9.2 (6.0-17.0)&#10;..."
                   rows="8"
-                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all resize-none font-mono text-sm"
+                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-emerald-500 resize-none font-mono text-sm"
                 />
               </div>
             )}
 
-            {/* Analyze Button */}
             <div className="text-center">
               <button
                 onClick={handleAnalyze}
@@ -1192,7 +879,7 @@ section showing correlation between vocal patterns and blood work findings.`
                 ) : (
                   <>
                     <Sparkles className="w-6 h-6" />
-                    Analyze with AI
+                    Analyze with AI - FREE
                   </>
                 )}
               </button>
@@ -1200,9 +887,9 @@ section showing correlation between vocal patterns and blood work findings.`
           </div>
         )}
 
-        {/* Analyzing Screen */}
+        {/* ANALYZING SCREEN */}
         {step === 'analyzing' && (
-          <div className="flex flex-col items-center justify-center py-24 space-y-8 animate-fadeIn">
+          <div className="flex flex-col items-center justify-center py-24 space-y-8">
             <div className="relative">
               <div className="w-32 h-32 border-4 border-emerald-200 border-t-emerald-600 rounded-full animate-spin" />
               <div className="absolute inset-0 flex items-center justify-center">
@@ -1221,19 +908,7 @@ section showing correlation between vocal patterns and blood work findings.`
                 {uploads.petPhoto && (
                   <p className="flex items-center justify-center gap-2">
                     <CheckCircle className="w-5 h-5 text-emerald-600" />
-                    Analyzing visual health indicators
-                  </p>
-                )}
-                {voiceTranscript && (
-                  <p className="flex items-center justify-center gap-2">
-                    <CheckCircle className="w-5 h-5 text-emerald-600" />
-                    Correlating reported symptoms
-                  </p>
-                )}
-                {petEmotions.length > 0 && (
-                  <p className="flex items-center justify-center gap-2">
-                    <CheckCircle className="w-5 h-5 text-purple-600" />
-                    Integrating PetVoice™ emotional analysis
+                    Analyzing visual health
                   </p>
                 )}
                 <p className="flex items-center justify-center gap-2">
@@ -1245,70 +920,344 @@ section showing correlation between vocal patterns and blood work findings.`
           </div>
         )}
 
-        {/* Results Screen */}
-        {step === 'results' && analysis && (
-          <div className="space-y-8 animate-fadeIn">
+        {/* BASIC RESULTS SCREEN (FREE) */}
+        {step === 'basicResults' && basicAnalysis && (
+          <div className="space-y-8 animate-fadeIn max-w-4xl mx-auto">
             <div className="bg-gradient-to-r from-emerald-600 to-blue-600 rounded-3xl p-10 text-white shadow-2xl">
-              <div className="flex items-start justify-between">
-                <div>
-                  <div className="inline-block px-4 py-1 bg-white/20 rounded-full text-sm font-semibold mb-3">
-                    Multi-Modal Analysis Complete
+              <div className="inline-block px-4 py-1 bg-white/20 rounded-full text-sm font-semibold mb-3">
+                FREE Basic Analysis Complete ✓
+              </div>
+              <h2 className="text-4xl font-bold mb-3" style={{fontFamily: 'Playfair Display, serif'}}>
+                {petData.name}'s Health Pattern Analysis
+              </h2>
+              <p className="text-emerald-100">
+                {petData.breed} • {petData.age} years • {petData.sex}
+              </p>
+            </div>
+
+            <div className="bg-white rounded-3xl p-10 shadow-xl">
+              <div className="prose prose-lg max-w-none">
+                <div className="whitespace-pre-wrap" style={{lineHeight: '1.9'}}>
+                  {basicAnalysis}
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-gradient-to-br from-amber-50 to-orange-50 border-2 border-amber-200 rounded-3xl p-8">
+              <div className="flex items-start gap-6">
+                <div className="w-16 h-16 bg-gradient-to-br from-amber-500 to-orange-500 rounded-2xl flex items-center justify-center flex-shrink-0">
+                  <Gift className="w-8 h-8 text-white" />
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-2">Want the Complete Analysis?</h3>
+                  <p className="text-gray-700 mb-4">
+                    You've seen the pattern. Now get the detailed protocols, supplement recommendations, 
+                    dietary strategies, and vet discussion guides to help {petData.name} thrive.
+                  </p>
+                  <div className="bg-white rounded-xl p-6 mb-6">
+                    <div className="text-sm text-gray-700 space-y-2">
+                      <div className="flex items-center gap-2">
+                        <CheckCircle className="w-5 h-5 text-emerald-600" />
+                        <span>System-by-system detailed breakdown</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <CheckCircle className="w-5 h-5 text-emerald-600" />
+                        <span>Pattern-specific nutritional protocols</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <CheckCircle className="w-5 h-5 text-emerald-600" />
+                        <span>Supplement recommendations & dosing</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <CheckCircle className="w-5 h-5 text-emerald-600" />
+                        <span>Veterinarian discussion guide</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <CheckCircle className="w-5 h-5 text-emerald-600" />
+                        <span>3 comprehensive guide books ($297 value)</span>
+                      </div>
+                    </div>
                   </div>
-                  <h2 className="text-4xl font-bold mb-3" style={{fontFamily: 'Playfair Display, serif'}}>
-                    {petData.name}'s Health Pattern Analysis
-                  </h2>
-                  <p className="text-emerald-100">
-                    {petData.breed} • {petData.age} years • {petData.sex} ({petData.neuterStatus})
+                  <button
+                    onClick={() => setStep('unlock')}
+                    className="w-full px-8 py-5 bg-gradient-to-r from-emerald-600 via-blue-600 to-purple-600 text-white rounded-2xl font-bold text-xl hover:shadow-2xl hover:scale-105 transition-all"
+                  >
+                    Unlock Complete Analysis FREE 🎁
+                  </button>
+                  <p className="text-center text-sm text-gray-600 mt-3">
+                    Share your experience & get $297 worth of guides instantly
                   </p>
                 </div>
-                <button
-                  onClick={exportToPDF}
-                  className="bg-white/20 hover:bg-white/30 backdrop-blur-sm px-5 py-3 rounded-xl flex items-center gap-2 transition-colors font-semibold"
-                >
-                  <Download className="w-5 h-5" />
-                  Export PDF
-                </button>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* UNLOCK SCREEN (VIRAL SYSTEM) - CONDENSED VERSION */}
+        {step === 'unlock' && (
+          <div className="space-y-8 animate-fadeIn max-w-4xl mx-auto">
+            
+            <div className="text-center">
+              <h2 className="text-4xl font-bold text-gray-900 mb-2" style={{fontFamily: 'Playfair Display, serif'}}>
+                Unlock $297 in Premium Guides
+              </h2>
+              <p className="text-gray-600">Complete 4 simple steps to get instant access</p>
+            </div>
+
+            <div className="bg-white rounded-2xl p-6 shadow-lg">
+              <div className="flex items-center justify-between mb-3">
+                <span className="font-bold text-gray-900">Progress</span>
+                <span className="text-2xl font-bold text-emerald-600">{completionPercentage}%</span>
+              </div>
+              <div className="w-full bg-gray-200 rounded-full h-4">
+                <div 
+                  className="h-full bg-gradient-to-r from-emerald-500 to-blue-500 rounded-full transition-all duration-500"
+                  style={{ width: `${completionPercentage}%` }}
+                />
               </div>
             </div>
 
-            <div className="bg-white rounded-3xl p-10 border border-emerald-100 shadow-xl">
-              <div className="prose prose-lg max-w-none">
-                <div className="whitespace-pre-wrap" style={{fontFamily: 'Inter, sans-serif', lineHeight: '1.9', color: '#1f2937'}}>
-                  {analysis}
+            {/* STEP 1: Photo */}
+            <div className={`bg-white rounded-3xl p-8 shadow-lg border-2 ${unlockProgress.photo ? 'border-emerald-500' : 'border-gray-200'}`}>
+              <div className="flex items-start gap-6">
+                <div className={`w-16 h-16 rounded-2xl flex items-center justify-center ${unlockProgress.photo ? 'bg-emerald-500 text-white' : 'bg-gray-100'}`}>
+                  {unlockProgress.photo ? <CheckCircle className="w-8 h-8" /> : <Camera className="w-8 h-8" />}
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-2">Step 1: Show Us {petData.name}!</h3>
+                  <p className="text-gray-600 mb-4">Upload a clear photo. (We know they're the cutest! 📸)</p>
+                  
+                  {!unlockProgress.photo ? (
+                    <>
+                      <input
+                        ref={unlockPhotoRef}
+                        type="file"
+                        accept="image/*"
+                        capture="environment"
+                        onChange={handleUnlockPhotoUpload}
+                        className="hidden"
+                      />
+                      <button
+                        onClick={() => unlockPhotoRef.current?.click()}
+                        className="px-8 py-4 bg-emerald-600 text-white rounded-xl font-bold hover:bg-emerald-700"
+                      >
+                        <Camera className="w-5 h-5 inline mr-2" />
+                        Upload Photo
+                      </button>
+                    </>
+                  ) : (
+                    <div className="text-emerald-700 font-bold">✓ Photo uploaded!</div>
+                  )}
                 </div>
               </div>
             </div>
 
-            <div className="flex gap-4">
+            {/* STEP 2: Voice */}
+            <div className={`bg-white rounded-3xl p-8 shadow-lg border-2 ${unlockProgress.voice ? 'border-blue-500' : 'border-gray-200'}`}>
+              <div className="flex items-start gap-6">
+                <div className={`w-16 h-16 rounded-2xl flex items-center justify-center ${unlockProgress.voice ? 'bg-blue-500 text-white' : 'bg-gray-100'}`}>
+                  {unlockProgress.voice ? <CheckCircle className="w-8 h-8" /> : <Mic className="w-8 h-8" />}
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-2">Step 2: Tell Their Story</h3>
+                  <p className="text-gray-600 mb-4">30-second voice recording (can be anonymous!)</p>
+                  
+                  {!unlockProgress.voice ? (
+                    voiceRecording ? (
+                      <div className="space-y-2">
+                        <div className="text-2xl font-bold">{recordingTime}s / 30s</div>
+                        <button
+                          onClick={stopUnlockVoiceRecording}
+                          className="px-8 py-4 bg-red-600 text-white rounded-xl font-bold"
+                        >
+                          Stop Recording
+                        </button>
+                      </div>
+                    ) : (
+                      <button
+                        onClick={startUnlockVoiceRecording}
+                        className="px-8 py-4 bg-blue-600 text-white rounded-xl font-bold hover:bg-blue-700"
+                      >
+                        <Mic className="w-5 h-5 inline mr-2" />
+                        Start Recording
+                      </button>
+                    )
+                  ) : (
+                    <div className="text-blue-700 font-bold">✓ Voice recorded!</div>
+                  )}
+                </div>
+              </div>
+            </div>
+
+            {/* STEP 3: Social */}
+            <div className={`bg-white rounded-3xl p-8 shadow-lg border-2 ${unlockProgress.social ? 'border-purple-500' : 'border-gray-200'}`}>
+              <div className="flex items-start gap-6">
+                <div className={`w-16 h-16 rounded-2xl flex items-center justify-center ${unlockProgress.social ? 'bg-purple-500 text-white' : 'bg-gray-100'}`}>
+                  {unlockProgress.social ? <CheckCircle className="w-8 h-8" /> : <Share2 className="w-8 h-8" />}
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-2">Step 3: Help Other Pet Parents</h3>
+                  <p className="text-gray-600 mb-4">Share with #PetLabAIResults</p>
+                  
+                  {!unlockProgress.social ? (
+                    <div className="grid grid-cols-3 gap-3">
+                      <button onClick={() => shareToSocial('facebook')} className="px-6 py-3 bg-blue-600 text-white rounded-xl font-semibold">Facebook</button>
+                      <button onClick={() => shareToSocial('twitter')} className="px-6 py-3 bg-sky-500 text-white rounded-xl font-semibold">Twitter</button>
+                      <button onClick={() => shareToSocial('instagram')} className="px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-xl font-semibold">Instagram</button>
+                    </div>
+                  ) : (
+                    <div className="text-purple-700 font-bold">✓ Shared on social!</div>
+                  )}
+                </div>
+              </div>
+            </div>
+
+            {/* STEP 4: Data */}
+            <div className={`bg-white rounded-3xl p-8 shadow-lg border-2 ${unlockProgress.data ? 'border-amber-500' : 'border-gray-200'}`}>
+              <div className="flex items-start gap-6">
+                <div className={`w-16 h-16 rounded-2xl flex items-center justify-center ${unlockProgress.data ? 'bg-amber-500 text-white' : 'bg-gray-100'}`}>
+                  {unlockProgress.data ? <CheckCircle className="w-8 h-8" /> : <Award className="w-8 h-8" />}
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-2">Step 4: 5 Quick Questions</h3>
+                  
+                  {!unlockProgress.data ? (
+                    <div className="space-y-4">
+                      <select value={additionalData.diet} onChange={(e) => setAdditionalData({...additionalData, diet: e.target.value})} className="w-full px-4 py-3 border-2 rounded-xl">
+                        <option value="">What does {petData.name} eat?</option>
+                        <option value="kibble">Kibble</option>
+                        <option value="raw">Raw</option>
+                        <option value="cooked">Home-cooked</option>
+                      </select>
+                      
+                      <select value={additionalData.activityLevel} onChange={(e) => setAdditionalData({...additionalData, activityLevel: e.target.value})} className="w-full px-4 py-3 border-2 rounded-xl">
+                        <option value="">Activity level?</option>
+                        <option value="low">Low</option>
+                        <option value="moderate">Moderate</option>
+                        <option value="high">High</option>
+                      </select>
+                      
+                      <select value={additionalData.environment} onChange={(e) => setAdditionalData({...additionalData, environment: e.target.value})} className="w-full px-4 py-3 border-2 rounded-xl">
+                        <option value="">Living environment?</option>
+                        <option value="apartment">Apartment</option>
+                        <option value="house">House</option>
+                        <option value="farm">Farm</option>
+                      </select>
+                      
+                      <select value={additionalData.otherPets} onChange={(e) => setAdditionalData({...additionalData, otherPets: e.target.value})} className="w-full px-4 py-3 border-2 rounded-xl">
+                        <option value="">Other pets?</option>
+                        <option value="none">No</option>
+                        <option value="dogs">Yes, dogs</option>
+                        <option value="cats">Yes, cats</option>
+                      </select>
+                      
+                      <input 
+                        type="text" 
+                        value={additionalData.topConcern} 
+                        onChange={(e) => setAdditionalData({...additionalData, topConcern: e.target.value})} 
+                        placeholder="Top health concern?"
+                        className="w-full px-4 py-3 border-2 rounded-xl"
+                      />
+                      
+                      <button onClick={handleDataSubmit} className="w-full px-8 py-4 bg-amber-600 text-white rounded-xl font-bold hover:bg-amber-700">
+                        Submit Answers
+                      </button>
+                    </div>
+                  ) : (
+                    <div className="text-amber-700 font-bold">✓ All answered!</div>
+                  )}
+                </div>
+              </div>
+            </div>
+
+            {/* Unlock Button */}
+            <div className="bg-white rounded-3xl p-8 shadow-lg text-center">
               <button
-                onClick={handleReset}
-                className="flex-1 bg-emerald-600 text-white py-5 rounded-2xl font-bold text-lg hover:bg-emerald-700 transition-colors"
+                onClick={handleUnlock}
+                disabled={!isFullyUnlocked}
+                className={`px-12 py-6 rounded-2xl font-bold text-xl inline-flex items-center gap-3 ${
+                  isFullyUnlocked
+                    ? 'bg-gradient-to-r from-emerald-600 via-blue-600 to-purple-600 text-white hover:shadow-2xl hover:scale-105 cursor-pointer'
+                    : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                }`}
               >
-                Analyze Another Pet
-              </button>
-              <button
-                onClick={exportToPDF}
-                className="px-10 py-5 border-2 border-emerald-600 text-emerald-600 rounded-2xl font-bold text-lg hover:bg-emerald-50 transition-colors flex items-center gap-2"
-              >
-                <Download className="w-6 h-6" />
-                Save Report
+                {isFullyUnlocked ? (
+                  <>
+                    <Download className="w-6 h-6" />
+                    Unlock My $297 in Guides FREE
+                  </>
+                ) : (
+                  <>
+                    <Lock className="w-6 h-6" />
+                    Complete All Steps to Unlock
+                  </>
+                )}
               </button>
             </div>
           </div>
         )}
 
+        {/* COMPLETE SCREEN */}
+        {step === 'complete' && (
+          <div className="text-center space-y-8 animate-fadeIn max-w-3xl mx-auto py-12">
+            <div className="w-32 h-32 mx-auto bg-gradient-to-br from-emerald-500 to-blue-500 rounded-full flex items-center justify-center">
+              <CheckCircle className="w-16 h-16 text-white" />
+            </div>
+            
+            <div>
+              <h2 className="text-5xl font-bold text-gray-900 mb-4" style={{fontFamily: 'Playfair Display, serif'}}>
+                🎉 Unlocked!
+              </h2>
+              <p className="text-xl text-gray-600">
+                Check your email for download links to all 3 premium guides ($297 value)
+              </p>
+            </div>
+
+            <div className="bg-white rounded-3xl p-8 shadow-xl">
+              <h3 className="text-2xl font-bold mb-6">Your Premium Guides:</h3>
+              <div className="space-y-4 text-left">
+                <div className="flex items-center gap-4 p-4 bg-emerald-50 rounded-xl">
+                  <Download className="w-8 h-8 text-emerald-600" />
+                  <div>
+                    <div className="font-bold">Holistic Pattern Restoration Guide™</div>
+                    <div className="text-sm text-gray-600">88 pages • $97 value</div>
+                  </div>
+                </div>
+                <div className="flex items-center gap-4 p-4 bg-blue-50 rounded-xl">
+                  <Download className="w-8 h-8 text-blue-600" />
+                  <div>
+                    <div className="font-bold">Breed-Specific Wellness Blueprint™</div>
+                    <div className="text-sm text-gray-600">124 pages • $127 value</div>
+                  </div>
+                </div>
+                <div className="flex items-center gap-4 p-4 bg-indigo-50 rounded-xl">
+                  <Download className="w-8 h-8 text-indigo-600" />
+                  <div>
+                    <div className="font-bold">Integrative Vet Visit Mastery™</div>
+                    <div className="text-sm text-gray-600">76 pages • $73 value</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <button
+              onClick={handleReset}
+              className="px-12 py-5 bg-emerald-600 text-white rounded-2xl font-bold text-lg hover:bg-emerald-700"
+            >
+              Analyze Another Pet
+            </button>
+          </div>
+        )}
+
         {/* Error Display */}
         {error && (
-          <div className="fixed bottom-6 right-6 bg-red-50 border-2 border-red-200 rounded-2xl p-6 max-w-md shadow-2xl animate-fadeIn z-50">
+          <div className="fixed bottom-6 right-6 bg-red-50 border-2 border-red-200 rounded-2xl p-6 max-w-md shadow-2xl z-50">
             <div className="flex items-start gap-3">
-              <AlertCircle className="w-6 h-6 text-red-600 flex-shrink-0" />
+              <AlertCircle className="w-6 h-6 text-red-600" />
               <div>
                 <h4 className="font-bold text-red-900 mb-1">Error</h4>
                 <p className="text-red-700 text-sm">{error}</p>
-                <button
-                  onClick={() => setError(null)}
-                  className="mt-2 text-sm text-red-600 hover:text-red-800 font-semibold"
-                >
+                <button onClick={() => setError(null)} className="mt-2 text-sm text-red-600 font-semibold">
                   Dismiss
                 </button>
               </div>
@@ -1327,23 +1276,19 @@ section showing correlation between vocal patterns and blood work findings.`
               <span>Bank-Level Security</span>
               <span className="text-gray-300">•</span>
               <Globe className="w-4 h-4 text-emerald-600" />
-              <span>Available in 10+ Languages</span>
+              <span>Global Platform</span>
               <span className="text-gray-300">•</span>
               <Sparkles className="w-4 h-4 text-emerald-600" />
-              <span>Powered by Advanced AI</span>
+              <span>AI-Powered Analysis</span>
             </div>
             <p className="text-sm text-gray-600 max-w-3xl mx-auto">
-              <strong>VetLabAI 2.0</strong> provides educational information using multi-modal AI and integrative veterinary methodologies. 
-              Always consult your veterinarian for medical advice, diagnosis, and treatment.
+              <strong>VetLabAI</strong> provides educational information using multi-modal AI and integrative veterinary methodologies. 
+              Always consult your veterinarian for medical advice.
             </p>
             <div className="border-t border-gray-200 pt-4">
               <p className="text-sm font-semibold text-gray-800">Baiopet™</p>
-              <p className="text-xs text-gray-500 mt-1">
-                Evidence-Based Integrative Pet Health Platform
-              </p>
-              <p className="text-xs text-gray-500">
-                © {new Date().getFullYear()} Content Crew LLC. All rights reserved.
-              </p>
+              <p className="text-xs text-gray-500 mt-1">Evidence-Based Integrative Pet Health Platform</p>
+              <p className="text-xs text-gray-500">© {new Date().getFullYear()} Content Crew LLC. All rights reserved.</p>
             </div>
           </div>
         </div>
@@ -1353,22 +1298,12 @@ section showing correlation between vocal patterns and blood work findings.`
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700&display=swap');
         
         @keyframes fadeIn {
-          from {
-            opacity: 0;
-            transform: translateY(20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
+          from { opacity: 0; transform: translateY(20px); }
+          to { opacity: 1; transform: translateY(0); }
         }
 
         .animate-fadeIn {
           animation: fadeIn 0.6s ease-out;
-        }
-
-        * {
-          font-family: 'Inter', sans-serif;
         }
       `}</style>
     </div>
