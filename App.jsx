@@ -392,12 +392,12 @@ Provide BASIC RESULTS (free preview) as specified in the system prompt. This is 
     if (!file) return;
 
     if (!file.type.startsWith('image/')) {
-      alert('That's not a photo! We need to see that adorable face. 📸');
+      alert("That's not a photo! We need to see that adorable face. 📸");
       return;
     }
 
     if (file.size > 10 * 1024 * 1024) {
-      alert('Whoa, that's a big file! Try a smaller photo (under 10MB).');
+      alert("Whoa, that's a big file! Try a smaller photo (under 10MB).");
       return;
     }
 
@@ -432,7 +432,7 @@ Provide BASIC RESULTS (free preview) as specified in the system prompt. This is 
       }, 1000);
 
     } catch (err) {
-      alert('Oops! We need microphone access. Check your browser permissions.');
+      alert("Oops! We need microphone access. Check your browser permissions.");
     }
   };
 
@@ -476,7 +476,7 @@ If your pet has mysterious symptoms or you just want to understand their health 
       url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(post.text)}&url=${encodeURIComponent(post.url)}`;
     } else if (platform === 'instagram') {
       navigator.clipboard.writeText(post.text);
-      alert('Caption copied! 📋 Paste it into Instagram with your pet\'s photo.');
+      alert("Caption copied! 📋 Paste it into Instagram with your pet's photo.");
     }
     
     if (url) window.open(url, '_blank', 'width=600,height=400');
@@ -490,7 +490,7 @@ If your pet has mysterious symptoms or you just want to understand their health 
     if (!additionalData.diet || !additionalData.activityLevel || 
         !additionalData.environment || !additionalData.otherPets || 
         !additionalData.topConcern) {
-      alert('Almost there! Fill in all 5 questions. (Your pet is counting on you! 🐕)');
+      alert("Almost there! Fill in all 5 questions. (Your pet is counting on you! 🐕)");
       return;
     }
 
@@ -501,7 +501,7 @@ If your pet has mysterious symptoms or you just want to understand their health 
     const completionPercentage = Object.values(unlockProgress).filter(Boolean).length * 25;
     
     if (completionPercentage !== 100) {
-      alert('Not quite yet! Complete all 4 steps to unlock your guides.');
+      alert("Not quite yet! Complete all 4 steps to unlock your guides.");
       return;
     }
 
