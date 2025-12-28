@@ -347,7 +347,7 @@ VetLabAI synthesizes evidence-based integrative veterinary methodologies from le
 
 **Trademark:** Baiopet™ is a trademark of Content Crew LLC
 
-**Copyright:** © 2024 Content Crew LLC. All rights reserved.
+**Copyright:** © 2025 Content Crew LLC. All rights reserved.
 
 **Terms of Service:** By using VetLabAI, you agree that:
 - This is educational information only
@@ -357,7 +357,7 @@ VetLabAI synthesizes evidence-based integrative veterinary methodologies from le
 
 ---
 
-**Built with ❤️ for pets and their humans**
+**Built with ❤️ for pets and their petparents**
 
 **Powered by:** Advanced AI • Evidence-Based Veterinary Science • Integrative Medicine Principles
 
