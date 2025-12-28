@@ -1,3 +1,4 @@
+[README.md](https://github.com/user-attachments/files/24361574/README.md)
 # 🐕 VetLabAI - Integrative Blood Work Analysis for Pets
 
 **AI-powered blood test interpretation with holistic pattern analysis and breed-specific insights.**
@@ -347,7 +348,7 @@ VetLabAI synthesizes evidence-based integrative veterinary methodologies from le
 
 **Trademark:** Baiopet™ is a trademark of Content Crew LLC
 
-**Copyright:** © 2025 Content Crew LLC. All rights reserved.
+**Copyright:** © 2024 Content Crew LLC. All rights reserved.
 
 **Terms of Service:** By using VetLabAI, you agree that:
 - This is educational information only
@@ -357,7 +358,7 @@ VetLabAI synthesizes evidence-based integrative veterinary methodologies from le
 
 ---
 
-**Built with ❤️ for pets and their petparents**
+**Built with ❤️ for pets and their humans**
 
 **Powered by:** Advanced AI • Evidence-Based Veterinary Science • Integrative Medicine Principles
 
