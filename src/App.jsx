@@ -537,7 +537,7 @@ If your pet has mysterious symptoms or you just want to understand their health 
   src="/LOGO.png" 
   alt="PETLABAI - Holistic First" 
   style={{ 
-    height: '50px',
+    height: '100px',
     width: 'auto'
   }}
 />
