@@ -534,17 +534,14 @@ If your pet has mysterious symptoms or you just want to understand their health 
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
               <img 
+<img 
   src="/LOGO.png" 
   alt="PETLABAI - Holistic First" 
   style={{ 
     height: '50px',
-    width: 'auto',
-    backgroundColor: 'white',
-    padding: '12px 20px',
-    borderRadius: '12px',
-    boxShadow: '0 2px 8px rgba(139,111,71,0.15)'
+    width: 'auto'
   }}
-/>            
+/>
             </div>
             <div className="text-right">
               <p className="text-sm font-semibold text-gray-800">Pet Blood Test Analysis</p>
