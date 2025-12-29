@@ -533,7 +533,6 @@ If your pet has mysterious symptoms or you just want to understand their health 
         <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
-              <img 
 <img 
   src="/LOGO.png" 
   alt="PETLABAI - Holistic First" 
