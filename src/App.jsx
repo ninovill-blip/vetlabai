@@ -228,6 +228,7 @@ Extract ALL visible values.`
       });
 
       const data = await response.json();
+      console.log('OCR Response:', data);      
       setLabResults(data.content[0].text);
       
     } catch (err) {
@@ -368,6 +369,7 @@ Provide BASIC RESULTS (free preview) as specified in the system prompt. This is 
       });
 
       const data = await response.json();
+      console.log('Analyze Response:', data);      
       setBasicAnalysis(data.content[0].text);
       setStep('basicResults');
     } catch (err) {
