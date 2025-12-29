@@ -2,12 +2,13 @@ import React, { useState, useRef } from 'react';
 import { Upload, FileText, AlertCircle, CheckCircle, Sparkles, Download, Mic, Camera, FileUp, X, ChevronRight, Zap, Shield, Globe, Gift, Award, Heart, Lock, Share2 } from 'lucide-react';
 
 // ============================================================================
-// VETLABAI COMPLETE VIRAL SYSTEM
-// First-Mover Global Platform with Multi-Modal Analysis + Viral Unlock
+// PETLABAI - HOLISTIC FIRST
+// Pet Blood Test Analysis EDU + Holistic
+// Complete Viral System with Multi-Modal Analysis
 // Master Prompt V3.0 | "Because Our Pets Cannot Speak"
 // ============================================================================
 
-const MASTER_PROMPT = `You are VetLabAI, an advanced integrative pet health intelligence platform designed to solve a critical problem: **Our pets cannot speak, yet their health depends entirely on how well we—their guardians—understand their bodies.**
+const MASTER_PROMPT = `You are PETLABAI, an advanced integrative pet health intelligence platform designed to solve a critical problem: **Our pets cannot speak, yet their health depends entirely on how well we—their guardians—understand their bodies.**
 
 ## THE FUNDAMENTAL PROBLEM
 
@@ -127,7 +128,7 @@ This is **giving pets a voice through science, wisdom, and compassion.**
 
 *Because our pets cannot speak, we must learn to listen—to their blood, their bodies, and the patterns that reveal their truth.*`;
 
-export default function VetLabAI() {
+export default function PetLabAI() {
   // ============================================================================
   // STATE MANAGEMENT
   // ============================================================================
@@ -527,30 +528,23 @@ If your pet has mysterious symptoms or you just want to understand their health 
   // RENDER
   // ============================================================================
 
+  return (
     <div className="min-h-screen bg-gradient-to-br from-stone-50 via-emerald-50 to-blue-50">
       
-<header className="bg-white/90 backdrop-blur-xl border-b border-emerald-100/50 sticky top-0 z-50 shadow-sm">
-  <div className="max-w-7xl mx-auto px-6 py-4">
-    <div className="flex items-center justify-between">
-      <div className="flex items-center gap-4">
-        <img 
-          src="/LOGO.png" 
-          alt="PETLABAI - Holistic First" 
-          style={{ height: '50px', width: 'auto' }}
-        />
-      </div>
-      <div className="text-right">
-        <p className="text-sm font-semibold text-gray-800">Pet Blood Test Analysis</p>
-        <p className="text-xs text-gray-600">EDU + Holistic</p>
-      </div>
-    </div>
-  </div>
-</header>
-
+      {/* Header */}
+      <header className="bg-white/90 backdrop-blur-xl border-b border-emerald-100/50 sticky top-0 z-50 shadow-sm">
+        <div className="max-w-7xl mx-auto px-6 py-4">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-4">
+              <img 
+                src="/LOGO.png" 
+                alt="PETLABAI - Holistic First" 
+                style={{ height: '50px', width: 'auto' }}
+              />
             </div>
             <div className="text-right">
-              <p className="text-sm font-semibold text-gray-800">Baiopet™</p>
-              <p className="text-xs text-gray-500">Professional Edition</p>
+              <p className="text-sm font-semibold text-gray-800">Pet Blood Test Analysis</p>
+              <p className="text-xs text-gray-600">EDU + Holistic</p>
             </div>
           </div>
         </div>
@@ -1285,12 +1279,12 @@ If your pet has mysterious symptoms or you just want to understand their health 
               <span>AI-Powered Analysis</span>
             </div>
             <p className="text-sm text-gray-600 max-w-3xl mx-auto">
-              <strong>VetLabAI</strong> provides educational information using multi-modal AI and integrative veterinary methodologies. 
+              <strong>PETLABAI™</strong> provides educational information using multi-modal AI and integrative veterinary methodologies. 
               Always consult your veterinarian for medical advice.
             </p>
             <div className="border-t border-gray-200 pt-4">
-              <p className="text-sm font-semibold text-gray-800">Baiopet™</p>
-              <p className="text-xs text-gray-500 mt-1">Evidence-Based Integrative Pet Health Platform</p>
+              <p className="text-sm font-semibold text-gray-800">Content Crew LLC • Baiohuman</p>
+              <p className="text-xs text-gray-500 mt-1">Pet Blood Test Analysis EDU + Holistic</p>
               <p className="text-xs text-gray-500">© {new Date().getFullYear()} Content Crew LLC. All rights reserved.</p>
             </div>
           </div>
