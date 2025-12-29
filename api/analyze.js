@@ -18,8 +18,7 @@ export default async function handler(req, res) {
   }
 
   try {
-    const { messages, model = 'claude-sonnet-4-20250514', max_tokens = 2000 } = req.body;
-
+    const { messages, model = 'claude-sonnet-4-20250529', max_tokens = 2000 } = req.body;
     // Get API key from environment variable
     const apiKey = process.env.ANTHROPIC_API_KEY;
     
