@@ -695,7 +695,6 @@ If your pet has mysterious symptoms or you just want to understand their health 
                         ref={petPhotoRef}
                         type="file"
                         accept="image/*"
-                        capture="environment"
                         onChange={(e) => handleFileUpload(e.target.files[0], 'petPhoto')}
                         className="hidden"
                       />
