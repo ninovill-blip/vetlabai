@@ -772,7 +772,22 @@ If your pet has mysterious symptoms or you just want to understand their health 
                     placeholder="e.g., Max"
                     className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-emerald-500"
                   />
-                </div>
+                </div><div>
+  <label className="block text-sm font-semibold text-gray-700 mb-2">
+    Your Email Address *
+  </label>
+  <input
+    type="email"
+    required
+    value={petData.email}
+    onChange={(e) => setPetData({...petData, email: e.target.value})}
+    placeholder="your.email@example.com"
+    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all"
+  />
+  <p className="text-xs text-gray-500 mt-1">
+    📧 We'll email you {petData.name ? petData.name + "'s" : "the"} analysis report
+  </p>
+</div>
 
                 <div>
                   <label className="block text-sm font-bold text-gray-700 mb-2">Breed *</label>
