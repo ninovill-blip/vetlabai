@@ -135,10 +135,7 @@ export default function PetLabAI() {
   
   const [step, setStep] = useState('welcome'); // welcome, upload, form, analyzing, basicResults, unlock, complete
   
-  const [petData, setPetData] = useState({
-    name: '', species: 'dog', breed: '', age: '',
-    sex: 'male', neuterStatus: 'neutered', weight: '', concerns: ''
-  });
+  const setPetData({ name: '', email: '', species: 'dog', breed: '', age: '', sex: 'male', neuterStatus: 'neutered', weight: '', concerns: '' });
   
   const [uploads, setUploads] = useState({
     bloodWork: null,
@@ -509,7 +506,7 @@ If your pet has mysterious symptoms or you just want to understand their health 
 
   const handleReset = () => {
     setStep('welcome');
-    setPetData({ name: '', species: 'dog', breed: '', age: '', sex: 'male', neuterStatus: 'neutered', weight: '', concerns: '' });
+    setPetData({ name: '', email: '', species: 'dog', breed: '', age: '', sex: 'male', neuterStatus: 'neutered', weight: '', concerns: '' });
     setUploads({ bloodWork: null, petPhoto: null, unlockPhoto: null, voiceRecording: null });
     setLabResults('');
     setBasicAnalysis(null);
