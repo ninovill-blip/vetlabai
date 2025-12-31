@@ -135,8 +135,8 @@ export default function PetLabAI() {
   
   const [step, setStep] = useState('welcome'); // welcome, upload, form, analyzing, basicResults, unlock, complete
   
-  const setPetData({ name: '', email: '', species: 'dog', breed: '', age: '', sex: 'male', neuterStatus: 'neutered', weight: '', concerns: '' });
-  
+  const [petData, setPetData] = useState({ name: '', email: '', species: 'dog', breed: '', age: '', sex: 'male', neuterStatus: 'neutered', weight: '', concerns: '' });
+
   const [uploads, setUploads] = useState({
     bloodWork: null,
     petPhoto: null,
