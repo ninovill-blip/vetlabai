@@ -1314,9 +1314,9 @@ If your pet has mysterious symptoms or you just want to understand their health 
               <span>AI-Powered Analysis</span>
             </div>
             <p className="text-sm text-gray-600 max-w-3xl mx-auto">
-              <strong>PETLABAI™</strong> provides educational information using multi-modal AI and integrative veterinary methodologies. 
-              Always consult your veterinarian for medical advice.
-            </p>
+              <strong>PETLABAI™</strong> provides educational information only.
+Always consult your veterinarian for medical advice.
+
             <div className="border-t border-gray-200 pt-4">
               <p className="text-sm font-semibold text-gray-800">Content Crew LLC • Baiohuman</p>
               <p className="text-xs text-gray-500 mt-1">Pet Blood Test Analysis EDU + Holistic</p>
