@@ -887,7 +887,8 @@ If your pet has mysterious symptoms or you just want to understand their health 
                 ) : (
                   <>
                     <Sparkles className="w-6 h-6" />
-                    Analyze with AI - FREE
+                    AI Analyze & Educate Me - FREE
+
                   </>
                 )}
               </button>
