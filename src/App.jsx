@@ -368,7 +368,30 @@ Provide BASIC RESULTS (free preview) as specified in the system prompt. This is 
       const data = await response.json();
       console.log('Analyze Response:', data);      
       setBasicAnalysis(data.content[0].text);
-      setStep('basicResults');
+      setStep('basicResults');// Send email with analysis
+try {
+  const emailResponse = await fetch('/api/send-email', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      userEmail: petData.email,
+      petName: petData.name,
+      petBreed: petData.breed,
+      petAge: petData.age,
+      petWeight: petData.weight,
+      petSex: petData.sex,
+      analysis: data.content[0].text,
+      tier: 'basic'
+    })
+  });
+  
+  const emailResult = await emailResponse.json();
+  if (emailResult.success) {
+    console.log('✅ Analysis emailed to:', petData.email);
+  }
+} catch (emailError) {
+  console.error('Email send failed:', emailError);
+}
     } catch (err) {
       console.error('Analysis error:', err);
       setError('Analysis failed. Please check API key and try again.');
