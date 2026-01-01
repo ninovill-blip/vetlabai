@@ -390,6 +390,14 @@ Provide BASIC RESULTS (free preview) as specified.`
         {step === 'welcome' && (
           <div className="text-center space-y-8 animate-fadeIn">
             <div className="space-y-4 max-w-4xl mx-auto">
+            {/* New Year Emblem */}
+            <div className="flex justify-center mb-6">
+              <img 
+                src="/HNY2026.png" 
+                alt="Happy New Year 2026" 
+                className="w-32 h-32 md:w-40 md:h-40 animate-float"
+              />
+            </div>
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-100 text-emerald-800 rounded-full text-sm font-semibold">
                 <Zap className="w-4 h-4" />
                 First-Mover Global Platform
@@ -967,6 +975,15 @@ Provide BASIC RESULTS (free preview) as specified.`
         }
 
         .animate-fadeIn {
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
           animation: fadeIn 0.6s ease-out;
         }
       `}</style>
