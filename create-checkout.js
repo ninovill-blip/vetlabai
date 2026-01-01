@@ -1,142 +1,166 @@
-import Stripe from ‘stripe’;
+import Stripe from 'stripe';
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 // Valid promo codes
 const PROMO_CODES = {
-‘NEWYEAR2025’: { tier: ‘essential’, discount: 100 },
-‘FRESHSTART’: { tier: ‘essential’, discount: 100 },
-‘BETA2025’: { tier: ‘essential’, discount: 100 },
-‘INVESTOR25’: { tier: ‘premium’, discount: 100 },
-‘LAUNCH2025’: { tier: ‘premium’, discount: 100 },
-‘2025PETS’: { tier: ‘premium’, discount: 100 },
-‘PETLABAI2025’: { tier: ‘both’, discount: 100 }
+  // Essential tier codes (make it free)
+  'NEWYEAR2025': { tier: 'essential', discount: 100 },
+  'FRESHSTART': { tier: 'essential', discount: 100 },
+  'BETA2025': { tier: 'essential', discount: 100 },
+  
+  // Premium tier codes (make it free)
+  'INVESTOR25': { tier: 'premium', discount: 100 },
+  'LAUNCH2025': { tier: 'premium', discount: 100 },
+  '2025PETS': { tier: 'premium', discount: 100 },
+  
+  // Master code (works for both)
+  'PETLABAI2025': { tier: 'both', discount: 100 }
 };
 
 export default async function handler(req, res) {
-// Add CORS headers
-res.setHeader(‘Access-Control-Allow-Origin’, ‘*’);
-res.setHeader(‘Access-Control-Allow-Methods’, ‘POST, OPTIONS’);
-res.setHeader(‘Access-Control-Allow-Headers’, ‘Content-Type’);
+  if (req.method !== 'POST') {
+    return res.status(405).json({ error: 'Method not allowed' });
+  }
 
-if (req.method === ‘OPTIONS’) {
-return res.status(200).end();
-}
+  try {
+    const { tier, promoCode, petData, labResults } = req.body;
 
-if (req.method !== ‘POST’) {
-return res.status(405).json({ error: ‘Method not allowed’ });
-}
+    console.log('═══════════════════════════════════════════════');
+    console.log('🎫 CHECKOUT INITIATED');
+    console.log('Tier:', tier);
+    console.log('Promo Code:', promoCode || 'none');
+    console.log('Email:', petData?.email);
+    console.log('Pet Name:', petData?.name);
+    console.log('═══════════════════════════════════════════════');
 
-try {
-const { tier, promoCode, petData, labResults } = req.body;
+    // Validate promo code if provided
+    if (promoCode) {
+      const code = promoCode.toUpperCase().trim();
+      const validCode = PROMO_CODES[code];
 
-```
-console.log('Payment request:', { tier, promoCode: promoCode ? 'PROVIDED' : 'NONE', email: petData?.email });
+      if (!validCode) {
+        console.log('❌ Invalid promo code:', code);
+        return res.status(400).json({ 
+          error: true,
+          message: 'That promo code is not valid. Please check and try again.'
+        });
+      }
 
-// Validate required data
-if (!tier || !petData || !petData.email) {
- return res.status(400).json({
-   error: 'Missing required data',
-   message: 'Please ensure all pet information is filled out.'
- });
-}
+      // Check if code is valid for this tier
+      if (validCode.tier !== 'both' && validCode.tier !== tier) {
+        console.log('❌ Promo code tier mismatch');
+        console.log('   Code tier:', validCode.tier);
+        console.log('   Selected tier:', tier);
+        return res.status(400).json({ 
+          error: true,
+          message: `This code is only valid for ${validCode.tier} tier.`
+        });
+      }
 
-// Handle promo code
-if (promoCode) {
- const code = promoCode.toUpperCase().trim();
- const validCode = PROMO_CODES[code];
+      // Code is valid and gives 100% discount - send email
+      if (validCode.discount === 100) {
+        console.log('✅ Valid 100% discount code:', code);
+        console.log('📧 Attempting to send email...');
+        
+        try {
+          const emailPayload = {
+            userEmail: petData.email,
+            petName: petData.name,
+            petBreed: petData.breed,
+            petAge: petData.age,
+            petWeight: petData.weight,
+            petSex: petData.sex,
+            analysis: labResults,
+            tier: tier,
+            promoCode: code
+          };
 
- console.log('Checking promo code:', code, 'Valid:', !!validCode);
+          console.log('Email payload:', JSON.stringify(emailPayload, null, 2));
 
- if (!validCode) {
-   return res.status(400).json({
-     error: 'Invalid promo code',
-     message: 'That promo code is not valid. Please check and try again.'
-   });
- }
+          const emailResponse = await fetch('https://petlabai.com/api/send-email', {
+            method: 'POST',
+            headers: { 
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(emailPayload)
+          });
 
- if (validCode.tier !== 'both' && validCode.tier !== tier) {
-   return res.status(400).json({
-     error: 'Invalid promo code for this tier',
-     message: `This code is only valid for ${validCode.tier} tier.`
-   });
- }
+          console.log('Email API status:', emailResponse.status);
+          
+          const emailResult = await emailResponse.json();
+          console.log('Email API response:', JSON.stringify(emailResult, null, 2));
 
- // Code is valid - send email with analysis
- if (validCode.discount === 100) {
-   console.log('Promo code valid! Sending email to:', petData.email);
+          if (!emailResponse.ok) {
+            console.error('❌ Email API returned error');
+            console.error('Status:', emailResponse.status);
+            console.error('Response:', emailResult);
+            
+            // Still return success to user, log error for debugging
+            return res.status(200).json({
+              success: true,
+              free: true,
+              message: `✅ Promo code applied! We're sending your ${tier} analysis to ${petData.email}. Check spam if not received in 2 minutes.`,
+              tier: tier,
+              emailWarning: 'Email may be delayed'
+            });
+          }
 
-   try {
-     const baseUrl = process.env.VERCEL_URL
-       ? `https://${process.env.VERCEL_URL}`
-       : 'https://petlabai.com';
+          console.log('✅ Email sent successfully!');
+          console.log('Message ID:', emailResult.messageId);
 
-     const emailResponse = await fetch(`${baseUrl}/api/send-email`, {
-       method: 'POST',
-       headers: { 'Content-Type': 'application/json' },
-       body: JSON.stringify({
-         userEmail: petData.email,
-         petName: petData.name,
-         petBreed: petData.breed,
-         petAge: petData.age,
-         petWeight: petData.weight,
-         petSex: petData.sex,
-         analysis: labResults,
-         tier: tier,
-         promoCode: code
-       })
-     });
+          return res.status(200).json({
+            success: true,
+            free: true,
+            message: `🎉 Promo code applied! Your ${tier} analysis has been sent to ${petData.email}`,
+            tier: tier,
+            messageId: emailResult.messageId
+          });
 
-     const emailResult = await emailResponse.json();
-     console.log('Email sent:', emailResult);
+        } catch (emailError) {
+          console.error('❌ EMAIL SENDING ERROR:');
+          console.error(emailError);
+          console.error('Stack:', emailError.stack);
+          
+          // Still return success to user
+          return res.status(200).json({
+            success: true,
+            free: true,
+            message: `Promo code applied! We'll send your ${tier} analysis to ${petData.email} shortly. Check spam folder.`,
+            tier: tier,
+            emailError: true
+          });
+        }
+      }
+    }
 
-     return res.status(200).json({
-       success: true,
-       free: true,
-       message: `🎉 Promo code applied! Your ${tier} analysis has been sent to ${petData.email}`,
-       tier: tier
-     });
-   } catch (emailError) {
-     console.error('Email error:', emailError);
-     return res.status(200).json({
-       success: true,
-       free: true,
-       message: `Promo code applied! Please check your email at ${petData.email}`,
-       tier: tier
-     });
-   }
- }
-}
+    // No promo code or code doesn't give 100% discount - redirect to Stripe
+    let paymentLink;
 
-// No promo code - create payment link
-let paymentLink;
+    if (tier === 'essential') {
+      paymentLink = 'https://buy.stripe.com/cNicN6b7s2Es4PwbBu8EM02';
+    } else if (tier === 'premium') {
+      paymentLink = 'https://buy.stripe.com/fZu00k5N80wkgye5d68EM03';
+    } else {
+      console.log('❌ Invalid tier:', tier);
+      return res.status(400).json({ error: true, message: 'Invalid tier selected' });
+    }
 
-if (tier === 'essential') {
- paymentLink = 'https://buy.stripe.com/cNicN6b7s2Es4PwbBu8EM02';
-} else if (tier === 'premium') {
- paymentLink = 'https://buy.stripe.com/fZu00k5N80wkgye5d68EM03';
-} else {
- return res.status(400).json({
-   error: 'Invalid tier',
-   message: 'Please select a valid package tier.'
- });
-}
+    console.log('💳 Redirecting to Stripe:', paymentLink);
 
-console.log('Redirecting to payment:', paymentLink);
+    return res.status(200).json({
+      success: true,
+      paymentUrl: paymentLink,
+      tier: tier
+    });
 
-return res.status(200).json({
- success: true,
- paymentUrl: paymentLink,
- tier: tier
-});
-```
-
-} catch (error) {
-console.error(‘Checkout error:’, error);
-return res.status(500).json({
-error: ‘Payment processing failed’,
-message: error.message || ‘An unexpected error occurred. Please try again.’,
-details: process.env.NODE_ENV === ‘development’ ? error.stack : undefined
-});
-}
+  } catch (error) {
+    console.error('❌ CHECKOUT ERROR:');
+    console.error(error);
+    console.error('Stack:', error.stack);
+    return res.status(500).json({ 
+      error: true,
+      message: 'Payment processing failed. Please try again or contact support.'
+    });
+  }
 }
